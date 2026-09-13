@@ -1,13 +1,19 @@
 /**
  * Plesk Node.js application startup file.
- * Startbestand voor de Node.js-app in Plesk (Application Startup File = server.js).
+ * In Plesk: Application startup file = server.js (of app.js)
  */
+try {
+  require("dotenv").config();
+} catch {
+  // dotenv is optioneel; Next laadt .env zelf ook
+}
+
 const { createServer } = require("node:http");
 const { parse } = require("node:url");
 const next = require("next");
 
 const port = Number(process.env.PORT) || 3000;
-const hostname = process.env.HOSTNAME || "0.0.0.0";
+const hostname = "0.0.0.0";
 
 const app = next({
   dev: false,
@@ -24,10 +30,10 @@ app
       const parsedUrl = parse(req.url, true);
       handle(req, res, parsedUrl);
     }).listen(port, hostname, () => {
-      console.log(`MLAuto listening on http://${hostname}:${port}`);
+      console.log(`MLAuto ready on http://${hostname}:${port}`);
     });
   })
   .catch((err) => {
-    console.error("Failed to start MLAuto:", err);
+    console.error("MLAuto failed to start:", err);
     process.exit(1);
   });

@@ -1,10 +1,8 @@
 # ML Auto
 
-Website voor autobedrijf ML Auto (Middelburg): publieke bedrijfssite en beveiligd CMS.
+Website voor autobedrijf ML Auto (Middelburg): publieke site + beveiligd CMS.
 
-Zie **[PROJECT_MAP.md](./PROJECT_MAP.md)** voor architectuur en details.
-
-## Snel starten (lokaal)
+## Lokaal
 
 ```sh
 cp .env.example .env
@@ -14,59 +12,50 @@ npm run db:seed
 npm run dev
 ```
 
-Admin: `/admin` (credentials in `.env`).
+Admin: `/admin`
 
-## Deploy op Plesk (Git)
+## Plesk (belangrijk)
 
-Dit is een **Node.js**-app (geen statische `out/`-map). Vereist de Node.js-extensie in Plesk en **Node 20+**.
+Zonder **Node.js** blijft je domein de Plesk-defaultpagina tonen. Alleen Git-koppelen is niet genoeg.
 
-### 1. Git-repository
+### A. Git
 
-- Extern repository: `https://github.com/Ahmadalaina7/ml-auto`
-- Publicatiemodus: Automatisch
-- Zoekpad server: map van je (sub)domein, bijv. `/httpdocs` of `/MLAutos.webnestiq.nl`
-
-### 2. Aanvullende acties bij publicatie
-
-Vink **Aanvullende acties bij publicatie** aan en plak:
+1. Extern repository: `https://github.com/Ahmadalaina7/ml-auto`
+2. **Zoekpad server** = website-map van het subdomain (waar de site naartoe moet), bv. `mlaoutos.webnestiq.nl`
+3. Vink **Aanvullende acties bij publicatie** aan:
 
 ```sh
 bash scripts/plesk-deploy.sh
 ```
 
-Dat doet: `npm ci` → `prisma migrate deploy` → `npm run build`.
+4. Publiceren / Pull
 
-### 3. Eenmalig: `.env` op de server
+Het script:
+- verwijdert de Plesk-`index.html` (die blokkeert anders de app)
+- maakt `.env` aan als die ontbreekt
+- installeert dependencies, migreert de database, bouwt de site
+- seedt admin bij de eerste deploy
 
-Maak in de applicatiemap een `.env` (niet via Git), bijvoorbeeld:
+### B. Node.js (verplicht)
 
-```env
-DATABASE_URL="file:./data/prod.db"
-AUTH_SECRET="plak-hier-minstens-32-willekeurige-tekens"
-ADMIN_EMAIL="admin@mlauto.nl"
-ADMIN_PASSWORD="sterk-wachtwoord"
-DATA_DIR="data"
-LOG_LEVEL="info"
-```
-
-Daarna één keer admin + demo-data:
-
-```sh
-npm run db:seed
-```
-
-### 4. Node.js in Plesk
+In Plesk → **Node.js** voor dit domein:
 
 | Instelling | Waarde |
 | --- | --- |
-| Node.js-versie | 20 of nieuwer |
+| Node.js-versie | **20 of hoger** |
 | Application root | map met `package.json` |
-| Application startup file | `server.js` |
+| Application startup file | **`server.js`** |
 | Application mode | production |
+| Enabled | **Aan** |
 
-Herstart de Node.js-app na elke geslaagde Git-publicatie.
+Daarna **Herstarten**.
 
-### Let op
+### C. Wachtwoord wijzigen
 
-- `better-sqlite3` moet op de server kunnen compileren (build tools). Lukt dat niet, gebruik Docker op een VPS (`docker compose up -d --build`).
-- Zet nooit `.env` in Git.
+Na eerste deploy log in op `/admin` met:
+- e-mail: `admin@mlauto.nl`
+- wachtwoord: `WijzigDitWachtwoord123` (staat in `.env` → meteen wijzigen)
+
+### Lukt Node.js niet op je hosting?
+
+Dan kan deze Next.js-app (admin, database, formulieren) niet draaien op alleen statische hosting. Gebruik een VPS met Docker (`docker compose up -d --build`) of een pakket mét Node.js.

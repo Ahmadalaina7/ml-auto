@@ -2,6 +2,7 @@
   "name": "ml-auto",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "engines": {
     "node": ">=20"
   },
@@ -35,7 +36,9 @@
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "7.10.0",
     "@prisma/client": "7.10.0",
+    "@tailwindcss/postcss": "^4.3.3",
     "bcryptjs": "3.0.3",
+    "better-sqlite3": "^12.11.1",
     "dotenv": "^17.4.2",
     "jose": "6.2.12",
     "next": "16.3.5",
@@ -44,11 +47,12 @@
     "prisma": "7.10.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "tailwindcss": "^4.3.3",
     "tsx": "^4",
+    "typescript": "6.0.2",
     "zod": "4.6.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.3",
     "@types/bcryptjs": "3.0.0",
     "@types/node": "^24",
     "@types/nodemailer": "8.0.1",
@@ -56,8 +60,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
-    "tailwindcss": "^4.3.3",
-    "typescript": "6.0.2",
     "vitest": "5.0.0"
   }
 }
