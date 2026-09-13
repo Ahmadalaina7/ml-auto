@@ -15,7 +15,7 @@ function Logo() {
         M
       </span>
       <span className="font-display text-lg font-black leading-none tracking-tight text-white sm:text-xl">
-        ML<span className="text-accent">AUTO</span>
+        ML<span className="text-accent">AUTO&apos;S</span>
       </span>
     </span>
   );
