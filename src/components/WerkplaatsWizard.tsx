@@ -108,7 +108,7 @@ export function WerkplaatsWizard() {
                   <label
                     key={value}
                     className={`flex cursor-pointer items-center justify-between rounded-lg border-2 px-4 py-3 text-sm font-semibold transition duration-fast ${
-                      service === value ? "border-accent bg-accent/5 text-brand" : "border-surface text-ink hover:border-brand/30"
+                      service === value ? "border-accent bg-accent/10 text-brand" : "border-surface text-ink hover:border-brand/30"
                     }`}
                   >
                     <input type="radio" className="sr-only" checked={service === value} onChange={() => setService(value)} />
@@ -144,7 +144,7 @@ export function WerkplaatsWizard() {
                       <label
                         key={slot}
                         className={`cursor-pointer rounded-lg border-2 px-3 py-2 text-center text-sm font-semibold transition duration-fast ${
-                          timeSlot === slot ? "border-accent bg-accent/5 text-brand" : "border-surface text-ink hover:border-brand/30"
+                          timeSlot === slot ? "border-accent bg-accent/10 text-brand" : "border-surface text-ink hover:border-brand/30"
                         }`}
                       >
                         <input type="radio" className="sr-only" checked={timeSlot === slot} onChange={() => setTimeSlot(slot)} />
@@ -193,7 +193,7 @@ export function WerkplaatsWizard() {
               <button
                 type="submit"
                 disabled={!canNext}
-                className="ml-auto rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40"
+                className="ml-auto rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {step < 2 ? "Volgende stap" : "Aanvraag via WhatsApp"}
               </button>

@@ -35,52 +35,57 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="on-dark relative overflow-hidden bg-brand-dark text-white">
+      {/* Hero — luxe zwart + goud, foto full-bleed */}
+      <section className="relative min-h-[70vh] overflow-hidden sm:min-h-[78vh]">
         <div
-          className="hero-zoom absolute inset-0 bg-cover bg-center opacity-65"
+          className="hero-zoom absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/images/showroom.jpg)" }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/40 to-brand-dark/70" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:py-32">
-          <p className="rise inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-sm font-black uppercase tracking-[0.28em] text-brand">
-            Thuis in Zeeland
-          </p>
-          <h1 className="rise mt-4 max-w-3xl font-display text-2xl font-black leading-[1.08] tracking-tight sm:text-3xl lg:text-4xl">
-            Jouw volgende auto vind je hier.{" "}
-            <span className="text-accent">Helder en betrouwbaar.</span>
-          </h1>
-          <p className="rise mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg" style={{ animationDelay: "200ms" }}>
-            Goed onderhouden occasions, eerlijke inruil en een eigen werkplaats.
-            Op één adres in Middelburg.
-          </p>
-          <div className="rise mt-7 flex flex-wrap items-center gap-3" style={{ animationDelay: "300ms" }}>
-            <Link
-              href="/occasions"
-              className="rounded-md bg-accent px-6 py-2.5 text-sm font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-2 sm:text-base"
-            >
-              Bekijk occasions
-            </Link>
-            <Link
-              href="/taxatie"
-              className="rounded-md border-2 border-white/50 px-6 py-2.5 text-sm font-black text-white transition duration-fast hover:border-white hover:bg-white/10 sm:text-base"
-            >
-              Start gratis taxatie
-            </Link>
-            <a
-              href={`tel:${SITE.phone}`}
-              className="hidden items-center gap-2 text-white/80 transition duration-fast hover:text-accent sm:inline-flex"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span className="text-sm font-black">{SITE.phoneDisplay}</span>
-            </a>
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-brand from-0% via-brand/85 via-40% to-transparent to-75%"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto flex min-h-[70vh] max-w-6xl items-center px-4 py-20 sm:min-h-[78vh] sm:px-6 sm:py-28 lg:py-32">
+          <div className="max-w-xl sm:max-w-2xl">
+            <p className="rise inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-sm font-black uppercase tracking-[0.28em] text-accent">
+              Thuis in Zeeland
+            </p>
+            <h1 className="rise mt-4 font-display text-2xl font-black leading-[1.08] tracking-tight text-white sm:text-3xl lg:text-4xl">
+              Jouw volgende auto vind je hier.{" "}
+              <span className="text-accent">Helder en betrouwbaar.</span>
+            </h1>
+            <p className="rise mt-5 text-base leading-relaxed text-white/80 sm:text-lg" style={{ animationDelay: "200ms" }}>
+              Goed onderhouden occasions, eerlijke inruil en een eigen werkplaats.
+              Op één adres in Middelburg.
+            </p>
+            <div className="rise mt-7 flex flex-wrap items-center gap-3" style={{ animationDelay: "300ms" }}>
+              <Link
+                href="/occasions"
+                className="rounded-md bg-accent px-6 py-2.5 text-sm font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:text-white hover:shadow-2 sm:text-base"
+              >
+                Bekijk occasions
+              </Link>
+              <Link
+                href="/taxatie"
+                className="rounded-md border border-white/35 bg-white/5 px-6 py-2.5 text-sm font-black text-white transition duration-fast hover:border-accent hover:text-accent sm:text-base"
+              >
+                Start gratis taxatie
+              </Link>
+              <a
+                href={`tel:${SITE.phone}`}
+                className="hidden items-center gap-2 text-white/75 transition duration-fast hover:text-accent sm:inline-flex"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span className="text-sm font-black">{SITE.phoneDisplay}</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Karakteristiek */}
-      <section className="bg-brand-dark py-16 text-white sm:py-20">
+      <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal className="grid gap-6 sm:grid-cols-3">
             {[
@@ -88,9 +93,9 @@ export default async function HomePage() {
               { k: "Eerlijke inkoop", t: "Direct een bod op je inruil. Duidelijk, zonder verplichtingen en zonder verrassingen." },
               { k: "Bij je in de buurt", t: "Voltaweg 21 in Middelburg, met een werkplaats die jouw auto kent." },
             ].map((item) => (
-              <div key={item.k} className="rounded-xl border border-white/10 bg-white/5 p-6 transition duration-fast hover:bg-white/10">
-                <p className="font-display text-xl font-black text-accent sm:text-2xl">{item.k}</p>
-                <p className="mt-2 text-sm leading-relaxed text-white/80">{item.t}</p>
+              <div key={item.k} className="rounded-xl border border-surface bg-sand p-6 transition duration-fast hover:border-brand/20 hover:shadow-1">
+                <p className="font-display text-xl font-black text-brand sm:text-2xl">{item.k}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.t}</p>
               </div>
             ))}
           </Reveal>
@@ -177,18 +182,18 @@ export default async function HomePage() {
 
       {/* Acties */}
       {acties.length > 0 && (
-        <section className="bg-brand-dark py-16 text-white sm:py-20">
+        <section className="bg-white py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <Reveal className="route-line flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Acties</p>
-                <h2 className="mt-1 font-display text-2xl font-black tracking-tight sm:text-3xl lg:text-4xl">
+                <h2 className="mt-1 font-display text-2xl font-black tracking-tight text-brand sm:text-3xl lg:text-4xl">
                   Profiteer nu van onze aanbiedingen
                 </h2>
               </div>
               <Link
                 href="/acties"
-                className="font-black text-white underline-offset-4 transition duration-fast hover:text-accent hover:underline"
+                className="font-black text-brand underline-offset-4 transition duration-fast hover:text-accent hover:underline"
               >
                 Alle acties →
               </Link>
@@ -199,7 +204,7 @@ export default async function HomePage() {
                 const cover = actie.image || "/images/showroom.jpg";
                 return (
                   <Reveal key={actie.id}>
-                    <Link href="/acties" className="block h-full overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-1 transition duration-fast hover:-translate-y-0.5 hover:shadow-2">
+                    <Link href="/acties" className="block h-full overflow-hidden rounded-xl border border-surface bg-sand shadow-1 transition duration-fast hover:-translate-y-0.5 hover:shadow-2">
                       {actie.image && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={cover} alt={actie.title} className="h-44 w-full object-cover" />
@@ -210,8 +215,8 @@ export default async function HomePage() {
                             {actie.badge}
                           </span>
                         )}
-                        <h3 className="mt-3 font-display text-lg font-bold text-white">{actie.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-white/80">{actie.summary}</p>
+                        <h3 className="mt-3 font-display text-lg font-bold text-brand">{actie.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">{actie.summary}</p>
                       </div>
                     </Link>
                   </Reveal>
@@ -222,7 +227,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Taxatie CTA */}
+      {/* Taxatie CTA — luxe zwart + goud */}
       <section className="bg-brand py-16 text-white sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal className="grid items-center gap-8 md:grid-cols-2">
@@ -235,7 +240,7 @@ export default async function HomePage() {
                 In 3 stappen een eerlijk, vrijblijvend inruilvoorstel. Je krijgt antwoord via
                 {" "}{SITE.phoneDisplay} of e-mail, meestal binnen één werkdag.
               </p>
-              <ul className="mt-5 space-y-3 text-sm text-white/80">
+              <ul className="mt-5 space-y-3 text-sm text-white/85">
                 <li className="flex items-center gap-3"><span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-black text-brand">1</span> Gegevens invullen (merk, model, km-stand, staat)</li>
                 <li className="flex items-center gap-3"><span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-black text-brand">2</span> Wij beoordelen en berekenen de marktwaarde</li>
                 <li className="flex items-center gap-3"><span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-black text-brand">3</span> Je ontvangt ons voorstel per mail of telefoon</li>
@@ -244,11 +249,11 @@ export default async function HomePage() {
             <div className="flex flex-col gap-4 md:items-end">
               <Link
                 href="/taxatie"
-                className="w-full rounded-md bg-accent px-6 py-2.5 text-center text-sm font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-2 md:w-auto sm:text-base"
+                className="w-full rounded-md bg-accent px-6 py-2.5 text-center text-sm font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:text-white hover:shadow-2 md:w-auto sm:text-base"
               >
                 Start gratis taxatie
               </Link>
-              <p className="text-center text-sm text-white/60 md:text-right">
+              <p className="text-center text-sm text-white/70 md:text-right">
                 Gratis · vrijblijvend · antwoord binnen één werkdag
               </p>
             </div>

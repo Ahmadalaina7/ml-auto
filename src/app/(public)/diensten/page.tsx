@@ -59,7 +59,7 @@ export default function DienstenPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:justify-end">
             <Link
               href="/werkplaats"
-              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark"
+              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
             >
               Plan werkplaatsafspraak
             </Link>

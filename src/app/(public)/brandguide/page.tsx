@@ -192,7 +192,7 @@ export default function BrandguidePage() {
         <Reveal className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
             <div className="flex flex-wrap gap-4">
-              <button type="button" className="rounded-md bg-accent px-7 py-3 font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-2">
+              <button type="button" className="rounded-md bg-accent px-7 py-3 font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:text-white hover:shadow-2">
                 Primaire actie
               </button>
               <button type="button" className="rounded-md bg-brand px-7 py-3 font-black text-white transition duration-fast hover:bg-brand-2">

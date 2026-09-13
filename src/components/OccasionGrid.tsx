@@ -67,7 +67,7 @@ export function OccasionGrid({ occasions }: { occasions: OccasionItem[] }) {
           </p>
           <a
             href={`tel:${SITE.phone}`}
-            className="mt-4 inline-block rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark"
+            className="mt-4 inline-block rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
           >
             {SITE.phoneDisplay}
           </a>

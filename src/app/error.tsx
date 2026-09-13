@@ -18,7 +18,7 @@ export default function ErrorPage({
         <button
           type="button"
           onClick={reset}
-          className="rounded-md bg-accent px-6 py-3 font-black text-brand transition duration-fast hover:bg-accent-dark"
+          className="rounded-md bg-accent px-6 py-3 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
         >
           Opnieuw proberen
         </button>

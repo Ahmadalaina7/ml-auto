@@ -33,8 +33,8 @@ function navLinkClass(active: boolean) {
   return [
     "view-transition-link whitespace-nowrap rounded-md px-2 py-1.5 text-[13px] transition duration-fast xl:px-2.5 xl:text-sm",
     active
-      ? "font-semibold text-white bg-white/10"
-      : "font-medium text-white/80 hover:text-white hover:bg-white/10",
+      ? "font-semibold text-accent bg-white/5"
+      : "font-medium text-white/70 hover:text-accent hover:bg-white/5",
   ].join(" ");
 }
 
@@ -62,7 +62,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="on-dark sticky top-0 z-40 border-b border-white/10 bg-brand-dark/95 text-white shadow-2 backdrop-blur-md">
+    <header className="on-dark sticky top-0 z-40 border-b border-white/10 bg-brand/95 text-white shadow-2 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link href="/" className="inline-flex shrink-0 items-center" aria-label={`${SITE.name}, naar de homepage`}>
           <Logo />
@@ -82,7 +82,7 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href={`tel:${SITE.phone}`}
-            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-white/85 transition duration-fast hover:text-accent xl:inline-flex"
+            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-white/75 transition duration-fast hover:text-accent xl:inline-flex"
           >
             <PhoneIcon />
             <span>{SITE.phoneDisplay}</span>
@@ -90,7 +90,7 @@ export function SiteHeader() {
 
           <Link
             href="/werkplaats"
-            className="hidden items-center whitespace-nowrap rounded-md bg-accent px-4 py-2 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:shadow-2 sm:inline-flex"
+            className="hidden items-center whitespace-nowrap rounded-md bg-accent px-4 py-2 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white hover:shadow-2 sm:inline-flex"
           >
             Plan afspraak
           </Link>
@@ -138,7 +138,7 @@ function MobilePanel({
     <nav
       id={id}
       aria-label="Mobiele navigatie"
-      className="on-dark border-t border-white/10 bg-brand-dark px-4 pb-6 pt-4 shadow-2 xl:hidden"
+      className="on-dark border-t border-white/10 bg-brand px-4 pb-6 pt-4 shadow-2 xl:hidden"
     >
       <ul className="space-y-1" role="list">
         {NAV_LINKS.map((link) => {
@@ -151,8 +151,8 @@ function MobilePanel({
                 aria-current={active ? "page" : undefined}
                 className={`block rounded-md px-3 py-2.5 text-sm transition duration-fast ${
                   active
-                    ? "bg-white/10 font-semibold text-white"
-                    : "font-medium text-white/80 hover:bg-white/10 hover:text-white"
+                    ? "bg-white/10 font-semibold text-accent"
+                    : "font-medium text-white/75 hover:bg-white/5 hover:text-accent"
                 }`}
               >
                 {link.label}
@@ -166,7 +166,7 @@ function MobilePanel({
         <a
           href={`tel:${SITE.phone}`}
           onClick={onNavigate}
-          className="flex items-center justify-center gap-2 rounded-md border border-white/25 px-4 py-2.5 text-sm font-semibold text-white transition duration-fast hover:bg-white/10"
+          className="flex items-center justify-center gap-2 rounded-md border border-white/20 px-4 py-2.5 text-sm font-semibold text-white transition duration-fast hover:bg-white/5"
         >
           <PhoneIcon size={18} />
           <span>{SITE.phoneDisplay}</span>
@@ -174,7 +174,7 @@ function MobilePanel({
         <Link
           href="/werkplaats"
           onClick={onNavigate}
-          className="block w-full rounded-md bg-accent px-5 py-2.5 text-center text-sm font-black text-brand transition duration-fast hover:bg-accent-dark"
+          className="block w-full rounded-md bg-accent px-5 py-2.5 text-center text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
         >
           Plan afspraak
         </Link>
@@ -185,13 +185,13 @@ function MobilePanel({
 
 export function SiteFooter() {
   return (
-    <footer className="on-dark bg-brand-dark text-white">
+    <footer className="on-dark bg-brand text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div className="space-y-3">
           <Link href="/" className="inline-flex items-center" aria-label={`${SITE.name}, naar de homepage`}>
             <Logo />
           </Link>
-          <p className="max-w-xs text-sm leading-relaxed text-white/70">
+          <p className="max-w-xs text-sm leading-relaxed text-white/65">
             Occasionverkoop, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland.
           </p>
         </div>
@@ -201,7 +201,7 @@ export function SiteFooter() {
           <ul className="mt-4 grid grid-cols-2 gap-2">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-sm text-white/70 transition duration-fast hover:text-white">
+                <Link href={link.href} className="text-sm text-white/65 transition duration-fast hover:text-accent">
                   {link.label}
                 </Link>
               </li>
@@ -211,7 +211,7 @@ export function SiteFooter() {
 
         <div>
           <h2 className="text-sm font-black uppercase tracking-[0.24em] text-accent">Contact</h2>
-          <address className="mt-4 space-y-2 text-sm not-italic leading-relaxed text-white/70">
+          <address className="mt-4 space-y-2 text-sm not-italic leading-relaxed text-white/65">
             <p>
               {SITE.name}
               <br />

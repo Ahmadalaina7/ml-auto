@@ -3,7 +3,7 @@ export function StatusBadge({ status }: { status: string }) {
   const palette: Record<string, string> = {
     New: "bg-accent text-brand",
     Handled: "bg-strong/25 text-brand",
-    Confirmed: "bg-strong text-brand",
+    Confirmed: "bg-strong text-white",
     Done: "bg-strong/25 text-brand",
     Cancelled: "bg-surface text-muted",
     Sold: "bg-surface text-muted",

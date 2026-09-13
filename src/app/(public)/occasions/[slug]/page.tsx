@@ -89,7 +89,7 @@ export default async function OccasionDetailPage({ params }: Params) {
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a
               href={`tel:${SITE.phone}`}
-              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark"
+              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
             >
               Bel {SITE.phoneDisplay}
             </a>
@@ -163,7 +163,7 @@ export default async function OccasionDetailPage({ params }: Params) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:justify-end">
             <a
               href={`tel:${SITE.phone}`}
-              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark"
+              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
             >
               {SITE.phoneDisplay}
             </a>

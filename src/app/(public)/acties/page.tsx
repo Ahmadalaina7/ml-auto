@@ -55,7 +55,7 @@ export default async function ActiesPage() {
                 <div className="mt-6 flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
                   <a
                     href={`tel:${SITE.phone}`}
-                    className="rounded-md bg-accent px-5 py-2.5 text-center font-black text-brand transition duration-fast hover:bg-accent-dark"
+                    className="rounded-md bg-accent px-5 py-2.5 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
                   >
                     {SITE.phoneDisplay}
                   </a>

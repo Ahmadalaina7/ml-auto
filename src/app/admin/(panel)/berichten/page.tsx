@@ -51,7 +51,7 @@ export default async function AdminMessagesPage() {
                     <input type="hidden" name="kind" value="bericht" />
                     <button
                       type="submit"
-                      className="rounded-md bg-accent px-4 py-1.5 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark"
+                      className="rounded-md bg-accent px-4 py-1.5 text-sm font-black text-white transition duration-fast hover:bg-accent-dark"
                     >
                       Markeer als afgehandeld
                     </button>

@@ -127,7 +127,7 @@ export function TaxatieWizard() {
                       <label
                         key={c}
                         className={`cursor-pointer rounded-lg border-2 px-3 py-2.5 text-center text-sm font-semibold transition duration-fast ${
-                          condition === c ? "border-accent bg-accent/5 text-brand" : "border-surface text-ink hover:border-brand/30"
+                          condition === c ? "border-accent bg-accent/10 text-brand" : "border-surface text-ink hover:border-brand/30"
                         }`}
                       >
                         <input type="radio" className="sr-only" checked={condition === c} onChange={() => setCondition(c)} />
@@ -178,7 +178,7 @@ export function TaxatieWizard() {
               <button
                 type="submit"
                 disabled={!canNext}
-                className="ml-auto rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40"
+                className="ml-auto rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {step < 2 ? "Volgende stap" : "Voorstel via WhatsApp"}
               </button>

@@ -21,7 +21,7 @@ export default async function AdminOccasionsPage() {
         </div>
         <Link
           href="/admin/occasions/nieuw"
-          className="rounded-md bg-accent px-5 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark"
+          className="rounded-md bg-accent px-5 py-2.5 font-black text-white transition duration-fast hover:bg-accent-dark"
         >
           + Nieuwe occasion
         </Link>
@@ -47,7 +47,7 @@ export default async function AdminOccasionsPage() {
                   <td className="px-5 py-4">
                     <p className="font-semibold text-ink">
                       {occasion.title}
-                      {occasion.featured && <span className="ml-2 rounded bg-accent px-1.5 py-0.5 text-xs font-black text-brand">F</span>}
+                      {occasion.featured && <span className="ml-2 rounded bg-accent px-1.5 py-0.5 text-xs font-black text-white">F</span>}
                     </p>
                     <p className="text-xs text-muted">
                       {occasion.brand} {occasion.model} · {occasion.slug}

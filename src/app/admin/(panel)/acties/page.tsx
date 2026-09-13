@@ -24,7 +24,7 @@ export default async function AdminActiesPage() {
         </div>
         <Link
           href="/admin/acties/nieuw"
-          className="rounded-md bg-accent px-5 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark"
+          className="rounded-md bg-accent px-5 py-2.5 font-black text-white transition duration-fast hover:bg-accent-dark"
         >
           + Nieuwe actie
         </Link>
@@ -49,7 +49,7 @@ export default async function AdminActiesPage() {
                   <td className="px-5 py-4">
                     <p className="font-semibold text-ink">
                       {actie.title}
-                      {actie.featured && <span className="ml-2 rounded bg-accent px-1.5 py-0.5 text-xs font-black text-brand">F</span>}
+                      {actie.featured && <span className="ml-2 rounded bg-accent px-1.5 py-0.5 text-xs font-black text-white">F</span>}
                     </p>
                     <p className="text-xs text-muted">{actie.slug}</p>
                   </td>
