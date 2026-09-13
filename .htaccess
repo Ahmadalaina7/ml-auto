@@ -1,0 +1,13 @@
+# Plesk document root = git-repo → serve de Next static export uit /out
+DirectoryIndex out/index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Al onder /out → niet opnieuw herschrijven
+  RewriteRule ^out(/|$) - [L]
+
+  # Root en alle assets/pagina's → out/
+  RewriteRule ^(.*)$ out/$1 [L]
+</IfModule>

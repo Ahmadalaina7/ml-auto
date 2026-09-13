@@ -49,7 +49,7 @@ async function main() {
     run("npx", ["prisma", "migrate", "deploy"]);
     run("npm", ["run", "db:seed"]);
     run("npm", ["run", "build"], { STATIC_EXPORT: "1" });
-    console.log("==> Klaar: map out/ is bijgewerkt. Zet in Plesk het zoekpad op 'out'.");
+    console.log("==> Klaar: map out/ is bijgewerkt. Push + Plesk pull (.htaccess serveert out/ op het domein).");
   } finally {
     await movePairs(hide, true);
   }

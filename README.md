@@ -12,9 +12,9 @@ npm run db:seed
 npm run dev
 ```
 
-## Publiceren op Plesk (zoals je andere sites)
+## Publiceren op Plesk (statisch, geen Node)
 
-Deze site gaat als **statische map `out/`** online. Geen Node.js nodig op Plesk.
+De live site staat in **`out/`**. In de repo-root zit een **`.htaccess`** die alles naar `out/` stuurt, zodat het domein werkt ook als Zoekpad de hele git-map is (niet alleen `out`).
 
 ### 1. Lokaal bouwen en pushen
 
@@ -30,10 +30,13 @@ git push
 | Instelling | Waarde |
 | --- | --- |
 | Repository | `https://github.com/Ahmadalaina7/ml-auto` |
-| **Zoekpad server** | **`out`** (belangrijk) |
+| Zoekpad server | map met `package.json` **of** map `out` |
 | Publicatiemodus | Automatisch |
+| Aanvullende actie (aanbevolen) | `bash scripts/plesk-deploy.sh` |
 
-Daarna Pull/Publiceren. Klaar: geen Node.js, geen deploy-script.
+Daarna **Pull / Publiceren**. Geen Node.js nodig.
+
+Als de Plesk-defaultpagina blijft staan: run de aanvullende actie of verwijder handmatig `index.html` in de document root (alleen als die de Plesk-tekst “Domain Default page” bevat).
 
 ### Let op
 
