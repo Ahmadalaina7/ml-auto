@@ -228,11 +228,44 @@ body {
   }
 }
 
+/* --- WhatsApp FAB --- */
+.wa-fab {
+  isolation: isolate;
+}
+.wa-fab-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--color-whatsapp);
+  z-index: -1;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes wa-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    70% {
+      transform: scale(1.28);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.28);
+      opacity: 0;
+    }
+  }
+  .wa-fab-pulse {
+    animation: wa-pulse 2.4s ease-out infinite;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .rise,
   .hero-zoom,
-  .pop-in {
+  .pop-in,
+  .wa-fab-pulse {
     animation-duration: 0s;
     animation-delay: 0s;
     animation: none;
