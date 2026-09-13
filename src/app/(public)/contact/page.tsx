@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { SITE } from "@/lib/site";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Neem contact op met MLAuto in Middelburg: telefonisch, via WhatsApp, mail of het contactformulier.",
+  description: "Neem contact op met MLAuto's in Middelburg: telefonisch, via WhatsApp of mail.",
 };
 
 export default function ContactPage() {
@@ -14,13 +13,7 @@ export default function ContactPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Contact</span>
-      </nav>
-
-      <header className="route-line mt-4 max-w-2xl">
+      <header className="route-line max-w-2xl">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Contact</p>
         <h1 className="mt-1 font-display text-2xl font-black tracking-tight text-brand sm:text-3xl">
           We horen graag van je
@@ -75,6 +68,14 @@ export default function ContactPage() {
             <p className="mt-4 text-sm text-muted">
               Voldoende parkeergelegenheid direct voor de deur.
             </p>
+            <a
+              href={SITE.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block font-black text-brand underline-offset-4 transition duration-fast hover:text-accent hover:underline"
+            >
+              Open in Google Maps →
+            </a>
           </div>
         </aside>
       </div>

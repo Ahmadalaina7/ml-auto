@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { FUELS, OCCASION_CONDITIONS, SITE } from "@/lib/site";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const inputClass =
   "w-full rounded-md border border-brand/20 bg-white px-3 py-2.5 text-sm text-ink outline-none transition duration-fast focus:border-accent focus:ring-2 focus:ring-accent";
@@ -26,6 +26,11 @@ export function TaxatieWizard() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, [step, done]);
 
   const canNext =
     step === 0
@@ -55,7 +60,7 @@ export function TaxatieWizard() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(buildWhatsAppLink(SITE.whatsapp, body), "_blank", "noopener,noreferrer");
+    openWhatsApp(SITE.whatsapp, body);
     setDone(true);
   }
 
@@ -63,7 +68,7 @@ export function TaxatieWizard() {
     <div className="mx-auto max-w-2xl">
       <ol className="flex items-center gap-2" aria-label="Stappen">
         {STEPS.map((s, index) => (
-          <li key={s.title} className="flex min-w-0 flex-1 flex-col items-start gap-1.5">
+          <li key={s.title} className="flex min-w-0 flex-1 flex-col items-start gap-1.5" aria-current={index === step ? "step" : undefined}>
             <span className={`h-1.5 w-full rounded-full transition duration-fast ${index <= step ? "bg-accent" : "bg-brand/15"}`} />
             <span className={`truncate text-xs font-semibold ${index === step ? "text-brand" : "text-muted"}`}>
               {index + 1}. {s.title}
@@ -73,13 +78,13 @@ export function TaxatieWizard() {
       </ol>
 
       <div className="mt-6 rounded-xl border border-surface bg-white p-6 shadow-1 sm:p-8">
-        <h2 className="font-display text-xl font-bold text-brand">{STEPS[step].label}</h2>
+        <h2 ref={headingRef} tabIndex={-1} className="font-display text-xl font-bold text-brand outline-none">{STEPS[step].label}</h2>
 
         {done ? (
           <div className="mt-6 rounded-xl border border-strong/30 bg-strong/10 p-6">
-            <p className="font-display text-lg font-bold text-brand">WhatsApp geopend</p>
+            <p className="font-display text-lg font-bold text-brand">Doorgaan in WhatsApp</p>
             <p className="mt-2 text-sm text-ink">
-              Stuur het bericht om je taxatie-aanvraag bij ons af te leveren. We reageren meestal binnen één werkdag.
+              Stuur het vooraf ingevulde bericht om je taxatie-aanvraag bij ons af te leveren. We reageren meestal binnen één werkdag.
             </p>
           </div>
         ) : (

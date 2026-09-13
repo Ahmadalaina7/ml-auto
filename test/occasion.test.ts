@@ -72,12 +72,13 @@ describe("formatPrice", () => {
 });
 
 describe("formatKm", () => {
-  it("formatteert kilometerstand in nl-NL", () => {
-    expect(formatKm(48500)).toBe("49.000 km");
+  it("formatteert kilometerstand exact in nl-NL", () => {
+    expect(formatKm(48500)).toBe("48.500 km");
   });
 
-  it("rondt af op 1000", () => {
+  it("rondt alleen naar hele kilometers", () => {
     expect(formatKm(118000)).toBe("118.000 km");
+    expect(formatKm(48500.4)).toBe("48.500 km");
   });
 });
 

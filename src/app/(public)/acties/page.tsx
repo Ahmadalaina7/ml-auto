@@ -12,19 +12,17 @@ export const metadata: Metadata = {
 
 export default async function ActiesPage() {
   const acties = await getPrisma().actie.findMany({
-    where: { status: "Published", startsAt: { lte: new Date() } },
+    where: {
+      status: "Published",
+      startsAt: { lte: new Date() },
+      OR: [{ endsAt: null }, { endsAt: { gte: new Date() } }],
+    },
     orderBy: [{ featured: "desc" }, { startsAt: "desc" }],
   });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Acties</span>
-      </nav>
-
-      <header className="route-line mt-4">
+      <header className="route-line">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Acties & promoties</p>
         <h1 className="mt-1 max-w-3xl font-display text-2xl font-black tracking-tight text-brand sm:text-3xl">
           Profiteer van onze actuele aanbiedingen

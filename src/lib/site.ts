@@ -2,13 +2,13 @@
 // en keuzelijsten. Wordt gedeeld door de UI en de formulieren.
 
 export const SITE = {
-  name: "MLAuto",
+  name: "MLAuto's",
   tagline: "Occasionverkoop, inkoop en onderhoud in Middelburg",
   city: "Middelburg",
   phone: "+31646830085",
   phoneDisplay: "06 46 83 00 85",
   whatsapp: "+31646830085",
-  whatsappMessage: "Hallo MLAuto, ik heb een vraag over jullie occasions of werkplaats.",
+  whatsappMessage: "Hallo MLAuto's, ik heb een vraag over jullie occasions of werkplaats.",
   email: "info@mlauto.nl",
   address: {
     street: "Voltaweg 21",
@@ -20,6 +20,9 @@ export const SITE = {
     { day: "Zaterdag", time: "09:00 – 17:00" },
     { day: "Zondag", time: "Gesloten" },
   ],
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent("Voltaweg 21, 4338 PS Middelburg"),
 } as const;
 
 export const NAV_LINKS = [

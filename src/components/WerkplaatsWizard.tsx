@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { APPOINTMENT_SERVICES, SERVICE_TIMESLOTS, SITE } from "@/lib/site";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const inputClass =
   "w-full rounded-md border border-brand/20 bg-white px-3 py-2.5 text-sm text-ink outline-none transition duration-fast focus:border-accent focus:ring-2 focus:ring-accent";
@@ -20,6 +20,12 @@ function todayString(): string {
   return `${d.getFullYear()}-${m}-${day}`;
 }
 
+function isSunday(isoDate: string): boolean {
+  if (!isoDate) return false;
+  const d = new Date(`${isoDate}T12:00:00`);
+  return d.getDay() === 0;
+}
+
 export function WerkplaatsWizard() {
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
@@ -30,12 +36,18 @@ export function WerkplaatsWizard() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, [step, done]);
+
+  const sundaySelected = isSunday(date);
   const canNext =
     step === 0
       ? service.length > 0
       : step === 1
-        ? date.length > 0 && timeSlot.length > 0
+        ? date.length > 0 && timeSlot.length > 0 && !sundaySelected
         : name.trim().length > 1 && phone.trim().length > 0 && email.includes("@");
 
   function onSubmit(e: FormEvent) {
@@ -58,7 +70,7 @@ export function WerkplaatsWizard() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(buildWhatsAppLink(SITE.whatsapp, body), "_blank", "noopener,noreferrer");
+    openWhatsApp(SITE.whatsapp, body);
     setDone(true);
   }
 
@@ -66,7 +78,7 @@ export function WerkplaatsWizard() {
     <div className="mx-auto max-w-2xl">
       <ol className="flex items-center gap-2" aria-label="Stappen">
         {STEPS.map((s, index) => (
-          <li key={s.title} className="flex min-w-0 flex-1 flex-col items-start gap-1.5">
+          <li key={s.title} className="flex min-w-0 flex-1 flex-col items-start gap-1.5" aria-current={index === step ? "step" : undefined}>
             <span className={`h-1.5 w-full rounded-full transition duration-fast ${index <= step ? "bg-accent" : "bg-brand/15"}`} />
             <span className={`truncate text-xs font-semibold ${index === step ? "text-brand" : "text-muted"}`}>
               {index + 1}. {s.title}
@@ -76,13 +88,15 @@ export function WerkplaatsWizard() {
       </ol>
 
       <div className="mt-6 rounded-xl border border-surface bg-white p-6 shadow-1 sm:p-8">
-        <h2 className="font-display text-xl font-bold text-brand">{STEPS[step].label}</h2>
+        <h2 ref={headingRef} tabIndex={-1} className="font-display text-xl font-bold text-brand outline-none">
+          {STEPS[step].label}
+        </h2>
 
         {done ? (
           <div className="mt-6 rounded-xl border border-strong/30 bg-strong/10 p-6">
-            <p className="font-display text-lg font-bold text-brand">WhatsApp geopend</p>
+            <p className="font-display text-lg font-bold text-brand">Doorgaan in WhatsApp</p>
             <p className="mt-2 text-sm text-ink">
-              Stuur het bericht om je afspraakaanvraag bij ons af te leveren. We bevestigen zo snel mogelijk.
+              Stuur het vooraf ingevulde bericht om je afspraakaanvraag bij ons af te leveren. We bevestigen zo snel mogelijk.
             </p>
           </div>
         ) : (
@@ -108,7 +122,20 @@ export function WerkplaatsWizard() {
               <div className="space-y-4">
                 <div>
                   <label htmlFor="w-date" className="mb-1.5 block text-sm font-semibold text-ink">Datum</label>
-                  <input id="w-date" type="date" min={todayString()} value={date} onChange={(e) => setDate(e.target.value)} required className={inputClass} />
+                  <input
+                    id="w-date"
+                    type="date"
+                    min={todayString()}
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                    className={inputClass}
+                  />
+                  {sundaySelected && (
+                    <p className="mt-2 text-sm text-error" role="alert">
+                      Op zondag is de werkplaats gesloten. Kies een andere dag.
+                    </p>
+                  )}
                 </div>
                 <fieldset>
                   <legend className="mb-1.5 block text-sm font-semibold text-ink">Tijdstip</legend>
@@ -125,6 +152,7 @@ export function WerkplaatsWizard() {
                       </label>
                     ))}
                   </div>
+                  <p className="mt-2 text-xs text-muted">Ma–vr 08:00–18:00 · za 09:00–17:00 · zo gesloten</p>
                 </fieldset>
               </div>
             )}

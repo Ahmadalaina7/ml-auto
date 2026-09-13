@@ -89,10 +89,10 @@ export function SiteHeader() {
           </a>
 
           <Link
-            href="/occasions"
+            href="/werkplaats"
             className="hidden items-center whitespace-nowrap rounded-md bg-accent px-4 py-2 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:shadow-2 sm:inline-flex"
           >
-            Occasions
+            Plan afspraak
           </Link>
 
           <button
@@ -172,11 +172,11 @@ function MobilePanel({
           <span>{SITE.phoneDisplay}</span>
         </a>
         <Link
-          href="/occasions"
+          href="/werkplaats"
           onClick={onNavigate}
           className="block w-full rounded-md bg-accent px-5 py-2.5 text-center text-sm font-black text-brand transition duration-fast hover:bg-accent-dark"
         >
-          Bekijk occasions
+          Plan afspraak
         </Link>
       </div>
     </nav>
@@ -232,8 +232,11 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-4 pb-24 text-center text-xs text-white/40 sm:pb-4">
+      <div className="border-t border-white/10 py-4 pb-20 text-center text-xs text-white/40 sm:pb-4">
         © {new Date().getFullYear()} {SITE.name} · {SITE.city} · Thuis in Zeeland
+        <span className="mt-1 block text-white/30">
+          Sommige demo-foto&apos;s: Wikimedia Commons (CC BY-SA)
+        </span>
       </div>
     </footer>
   );

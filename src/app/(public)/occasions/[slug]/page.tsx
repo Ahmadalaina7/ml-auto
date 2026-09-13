@@ -1,9 +1,10 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPrisma } from "@/lib/server/db";
 import { Gallery } from "@/components/Gallery";
-import { formatKm, formatMonthly, formatPrice, parseFeatures } from "@/lib/occasion";
-import { occasionMonthlyCents, financeTermLabel } from "@/lib/finance";
+import { formatKm, formatMonthly, formatPrice, parseFeatures, parseImages } from "@/lib/occasion";
+import { FINANCE_DISCLAIMER, occasionMonthlyCents, financeTermLabel } from "@/lib/finance";
 import { SITE, SERVICES } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -14,6 +15,25 @@ export async function generateStaticParams() {
     select: { slug: true },
   });
   return occasions.map((o) => ({ slug: o.slug }));
+}
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const occasion = await getPrisma().occasion.findUnique({ where: { slug } });
+  if (!occasion || occasion.status !== "Published") {
+    return { title: "Occasion niet gevonden" };
+  }
+  const images = parseImages(occasion.images);
+  const cover = images[0] ?? "/images/showroom.jpg";
+  return {
+    title: occasion.title,
+    description: `${occasion.title} bij ${SITE.name} in Middelburg. ${formatKm(occasion.mileageKm)}, ${formatPrice(occasion.priceCents)}.`,
+    openGraph: {
+      title: occasion.title,
+      description: occasion.description.slice(0, 160),
+      images: [{ url: cover }],
+    },
+  };
 }
 
 export default async function OccasionDetailPage({ params }: Params) {
@@ -41,15 +61,7 @@ export default async function OccasionDetailPage({ params }: Params) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <Link href="/occasions" className="transition duration-fast hover:text-ink hover:underline">Occasions</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">{occasion.title}</span>
-      </nav>
-
-      <div className="mt-6 grid gap-10 lg:grid-cols-2">
+      <div className="grid gap-10 lg:grid-cols-2">
         <Gallery images={occasion.images} />
 
         <div>
@@ -72,6 +84,7 @@ export default async function OccasionDetailPage({ params }: Params) {
               <p className="mt-1 text-xs text-muted">{financeTermLabel()}</p>
             </div>
           </div>
+          <p className="mt-3 text-xs leading-snug text-faint">{FINANCE_DISCLAIMER}</p>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a

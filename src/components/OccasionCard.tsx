@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- upload- en demo-paden; next/image-optimalisatie is niet nodig. */
 import Link from "next/link";
 import { formatKm, formatMonthly, formatPrice, isRecentlyAdded, parseImages } from "@/lib/occasion";
-import { occasionMonthlyCents } from "@/lib/finance";
+import { FINANCE_DISCLAIMER, occasionMonthlyCents } from "@/lib/finance";
 
 type CardOccasion = {
   slug: string;
@@ -73,6 +73,7 @@ export function OccasionCard({ occasion }: { occasion: CardOccasion }) {
               <p className="text-xl sm:text-2xl font-black text-brand">{formatPrice(occasion.priceCents)}</p>
             </div>
           </div>
+          <p className="mt-3 text-[11px] leading-snug text-faint">{FINANCE_DISCLAIMER}</p>
         </div>
       </Link>
     </article>

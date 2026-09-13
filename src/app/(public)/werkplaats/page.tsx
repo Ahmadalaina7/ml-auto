@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { WerkplaatsWizard } from "@/components/WerkplaatsWizard";
 import { SITE } from "@/lib/site";
 
@@ -11,15 +10,7 @@ export const metadata: Metadata = {
 export default function WerkplaatsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <Link href="/diensten" className="transition duration-fast hover:text-ink hover:underline">Diensten</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Werkplaatsafspraak</span>
-      </nav>
-
-      <header className="route-line mt-4 max-w-2xl">
+      <header className="route-line max-w-2xl">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Werkplaats</p>
         <h1 className="mt-1 font-display text-2xl font-black tracking-tight text-brand sm:text-3xl">
           Plan online je werkplaatsafspraak
@@ -47,7 +38,7 @@ export default function WerkplaatsPage() {
                 <a href={`mailto:${SITE.email}`} className="font-black text-brand transition duration-fast hover:text-accent">
                   {SITE.email}
                 </a>
-                <span className="block text-muted">e-mail of aanvraagformulier</span>
+                <span className="block text-muted">e-mail of WhatsApp</span>
               </li>
             </ul>
           </div>

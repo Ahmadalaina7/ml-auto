@@ -23,6 +23,10 @@ export function OccasionFilterBar({
   value: OccasionFilters;
   onChange: (next: OccasionFilters) => void;
 }) {
+  const hasFilters = Boolean(
+    value.zoek || value.merk || value.brandstof || value.transmissie || value.carrosserie,
+  );
+
   return (
     <div className="rounded-xl border border-surface bg-white p-4 shadow-1">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
@@ -104,6 +108,17 @@ export function OccasionFilterBar({
           </select>
         </div>
       </div>
+      {hasFilters && (
+        <div className="mt-3 flex justify-end">
+          <button
+            type="button"
+            onClick={() => onChange({})}
+            className="text-sm font-black text-brand underline-offset-4 transition duration-fast hover:text-accent hover:underline"
+          >
+            Filters wissen
+          </button>
+        </div>
+      )}
     </div>
   );
 }

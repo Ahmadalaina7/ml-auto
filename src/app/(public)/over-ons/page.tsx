@@ -25,13 +25,7 @@ const WAARDEN = [
 export default function OverOnsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Over ons</span>
-      </nav>
-
-      <header className="route-line mt-4 max-w-3xl">
+      <header className="route-line max-w-3xl">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Over ons</p>
         <h1 className="mt-1 font-display text-2xl font-black tracking-tight text-brand sm:text-3xl">
           MLAuto: occasions, onderhoud en inkoop op één adres in Middelburg

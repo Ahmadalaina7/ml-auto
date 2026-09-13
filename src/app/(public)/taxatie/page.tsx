@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { TaxatieWizard } from "@/components/TaxatieWizard";
 
 export const metadata: Metadata = {
@@ -10,13 +9,7 @@ export const metadata: Metadata = {
 export default function TaxatiePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Online taxatie</span>
-      </nav>
-
-      <header className="route-line mt-4 max-w-2xl">
+      <header className="route-line max-w-2xl">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Occasion inkoop</p>
         <h1 className="mt-1 font-display text-2xl font-black tracking-tight text-brand sm:text-3xl">
           Online taxatie in drie stappen

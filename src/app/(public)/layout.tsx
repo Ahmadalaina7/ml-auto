@@ -5,7 +5,7 @@ export default function PublicLayout({ children }: Readonly<{ children: React.Re
   return (
     <>
       <SiteHeader />
-      <main id="main" className="pb-20 sm:pb-0">{children}</main>
+      <main id="main" className="pb-16 sm:pb-0">{children}</main>
       <SiteFooter />
       <WhatsAppButton />
     </>

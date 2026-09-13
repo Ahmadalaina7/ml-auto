@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { OccasionCard } from "@/components/OccasionCard";
 import { OccasionFilterBar, type OccasionFilters } from "@/components/OccasionFilters";
+import { SITE } from "@/lib/site";
 
 type OccasionItem = {
   slug: string;
@@ -65,11 +66,18 @@ export function OccasionGrid({ occasions }: { occasions: OccasionItem[] }) {
             Probeer filters te verruimen of neem contact op. Wij zoeken graag met je mee.
           </p>
           <a
-            href="tel:+31646830085"
+            href={`tel:${SITE.phone}`}
             className="mt-4 inline-block rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark"
           >
-            06 46 83 00 85
+            {SITE.phoneDisplay}
           </a>
+          <button
+            type="button"
+            onClick={() => setFilters({})}
+            className="mt-3 block w-full text-sm font-black text-brand underline-offset-4 hover:underline"
+          >
+            Filters wissen
+          </button>
         </div>
       )}
     </div>

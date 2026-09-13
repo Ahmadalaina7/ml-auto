@@ -11,20 +11,21 @@ const mukta = Mukta_Mahee({
 
 export const metadata: Metadata = {
   title: {
-    default: "MLAuto – Occasionverkoop, inkoop en onderhoud in Middelburg",
-    template: "%s | MLAuto Middelburg",
+    default: "MLAuto's – Occasionverkoop, inkoop en onderhoud in Middelburg",
+    template: "%s | MLAuto's Middelburg",
   },
   description:
-    "MLAuto in Middelburg: occasionverkoop en inkoop, werkplaatsafspraak, online taxatie, reparatie en onderhoud. Voltaweg 21, 4338 PS Middelburg.",
+    "MLAuto's in Middelburg: occasionverkoop en inkoop, werkplaatsafspraak, online taxatie, reparatie en onderhoud. Voltaweg 21, 4338 PS Middelburg.",
   metadataBase: new URL("https://www.mlauto.nl"),
   alternates: {},
   openGraph: {
-    title: "MLAuto – Occasionverkoop, inkoop en onderhoud in Middelburg",
+    title: "MLAuto's – Occasionverkoop, inkoop en onderhoud in Middelburg",
     description:
       "Jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland, bij je in de buurt.",
-    siteName: "MLAuto",
+    siteName: "MLAuto's",
     type: "website",
     locale: "nl_NL",
+    images: [{ url: "/images/showroom.jpg", width: 1200, height: 630, alt: "MLAuto's showroom Middelburg" }],
   },
 };
 

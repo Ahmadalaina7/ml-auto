@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Brandguide",
-  description: "De complete merkrichtlijnen van MLAuto: kleuren, typografie, vormtaal en tone of voice.",
+  description: "Interne merkrichtlijnen van MLAuto's.",
+  robots: { index: false, follow: false },
 };
 
 const KLEUREN: Array<{ naam: string; token: string; hex: string; css: string }> = [
@@ -27,16 +27,10 @@ const TEKENREEKSEN = ["0123456789", "Aa Bb Cc Dd Ee", "€ 29.950 (incl. btw)"];
 export default function BrandguidePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="text-sm text-muted" aria-label="Kruimelpad">
-        <Link href="/" className="transition duration-fast hover:text-ink hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Brandguide</span>
-      </nav>
-
-      <header className="route-line mt-4 max-w-3xl">
+      <header className="route-line max-w-3xl">
         <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">Brandguide</p>
         <h1 className="mt-1 font-display text-2xl font-black tracking-tight text-brand sm:text-3xl">
-          De identiteit van MLAuto, precies gedocumenteerd
+          De identiteit van MLAuto&apos;s, precies gedocumenteerd
         </h1>
         <p className="mt-3 text-muted">
           Eén merklijn: <span className="font-black text-ink">“Thuis in Zeeland, bij de weg naar je volgende auto.”</span>{" "}
@@ -83,14 +77,14 @@ export default function BrandguidePage() {
             <div className="on-dark flex min-h-40 flex-col items-center justify-center gap-3 rounded-xl bg-brand-dark p-8 shadow-1">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent font-display text-lg font-black text-brand">M</span>
-                <span className="font-display text-2xl font-black tracking-tight text-white">MLAUTO</span>
+                <span className="font-display text-2xl font-black tracking-tight text-white">MLAUTO&apos;S</span>
               </div>
               <p className="text-xs text-white/60">Thuis in Zeeland</p>
             </div>
             <div className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-xl border border-surface bg-white p-8 shadow-1">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-8 w-8 items-center justify-center rounded-md bg-brand font-display text-lg font-black text-white">M</span>
-                <span className="font-display text-2xl font-black tracking-tight text-brand">MLAUTO</span>
+                <span className="font-display text-2xl font-black tracking-tight text-brand">MLAUTO&apos;S</span>
               </div>
               <p className="text-xs text-muted">Thuis in Zeeland</p>
             </div>
@@ -231,11 +225,7 @@ export default function BrandguidePage() {
 
       <footer className="mt-16 rounded-xl bg-brand-dark p-6 text-sm text-white/70">
         <p>
-          Brandguide v2, onderdeel van het MLAuto design system. Zie ook{" "}
-          <Link href="/" className="font-black text-accent underline-offset-4 hover:underline">
-            de homepage
-          </Link>{" "}
-          en <span className="text-white">docs/BRANDGUIDE.md</span> voor de volledige specificatie.
+          Brandguide v2, onderdeel van het MLAuto&apos;s design system. Interne pagina, niet bedoeld voor indexering.
         </p>
       </footer>
     </div>

@@ -65,7 +65,7 @@ export function formatMonthly(monthlyCents: number): string {
 }
 
 export function formatKm(mileageKm: number): string {
-  return `${new Intl.NumberFormat("nl-NL").format(Math.round(mileageKm / 1000) * 1000)} km`;
+  return `${new Intl.NumberFormat("nl-NL").format(Math.max(0, Math.round(mileageKm)))} km`;
 }
 
 export function formatYearMonth(date: string | Date): string {

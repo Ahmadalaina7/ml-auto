@@ -9,7 +9,7 @@ import { SERVICES, SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Occasionverkoop, inkoop en onderhoud in Middelburg",
   description:
-    "MLAuto in Middelburg: jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland.",
+    "MLAuto's in Middelburg: jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland.",
 };
 
 export default async function HomePage() {
@@ -22,7 +22,11 @@ export default async function HomePage() {
       take: 6,
     }),
     db.actie.findMany({
-      where: { status: "Published", startsAt: { lte: new Date() } },
+      where: {
+        status: "Published",
+        startsAt: { lte: new Date() },
+        OR: [{ endsAt: null }, { endsAt: { gte: new Date() } }],
+      },
       orderBy: { featured: "desc" },
       take: 2,
     }),
@@ -62,7 +66,7 @@ export default async function HomePage() {
               href="/taxatie"
               className="rounded-md border-2 border-white/50 px-6 py-2.5 text-sm font-black text-white transition duration-fast hover:border-white hover:bg-white/10 sm:text-base"
             >
-              Directe taxatie
+              Start gratis taxatie
             </Link>
             <a
               href={`tel:${SITE.phone}`}
@@ -80,7 +84,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal className="grid gap-6 sm:grid-cols-3">
             {[
-              { k: "25+ jaar ervaring", t: "Autobedrijf met eigen werkplaats en APK-keuring, midden in Middelburg." },
+              { k: "Lokale expertise", t: "Autobedrijf met eigen werkplaats en APK-keuring, midden in Middelburg." },
               { k: "Eerlijke inkoop", t: "Direct een bod op je inruil. Duidelijk, zonder verplichtingen en zonder verrassingen." },
               { k: "Bij je in de buurt", t: "Voltaweg 21 in Middelburg, met een werkplaats die jouw auto kent." },
             ].map((item) => (
@@ -138,18 +142,26 @@ export default async function HomePage() {
           </Reveal>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <Reveal key={service.slug} delay={(index % 3) * 80}>
-                <div className="h-full rounded-xl border border-brand/10 bg-white p-6 shadow-1 transition duration-fast hover:-translate-y-0.5 hover:shadow-2">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-brand text-white">
-                    <ServiceIcon slug={service.slug} />
-                  </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-brand">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{service.description}</p>
-                  <p className="mt-4 text-sm font-black text-accent">{service.price}</p>
-                </div>
-              </Reveal>
-            ))}
+            {services.map((service, index) => {
+              const href = service.slug === "inkoop" ? "/taxatie" : "/werkplaats";
+              const cta = service.slug === "inkoop" ? "Vraag taxatie aan →" : "Afspraak maken →";
+              return (
+                <Reveal key={service.slug} delay={(index % 3) * 80}>
+                  <Link
+                    href={href}
+                    className="block h-full rounded-xl border border-brand/10 bg-white p-6 shadow-1 transition duration-fast hover:-translate-y-0.5 hover:shadow-2"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-brand text-white">
+                      <ServiceIcon slug={service.slug} />
+                    </div>
+                    <h3 className="mt-4 font-display text-lg font-bold text-brand">{service.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">{service.description}</p>
+                    <p className="mt-4 text-sm font-black text-accent">{service.price}</p>
+                    <p className="mt-3 text-sm font-black text-brand">{cta}</p>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
 
           <Reveal className="mt-8 text-center">

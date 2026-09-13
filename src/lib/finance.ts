@@ -49,3 +49,8 @@ export function occasionMonthlyCents(priceCents: number, monthlyFromCents: numbe
 export function financeTermLabel(termMonths = DEFAULT_TERM_MONTHS, rate = DEFAULT_ANNUAL_RATE): string {
   return `${termMonths} maanden · ${(rate * 100).toLocaleString("nl-NL", { maximumFractionDigits: 1 })}% rente`;
 }
+
+/** Korte disclaimer bij maandbedragen (indicatief, NL-consumentenkrediet). */
+export const FINANCE_DISCLAIMER =
+  "Indicatie. Onder voorbehoud van acceptatie. Representatief voorbeeld op basis van " +
+  `${DEFAULT_TERM_MONTHS} maanden en ${(DEFAULT_ANNUAL_RATE * 100).toLocaleString("nl-NL", { maximumFractionDigits: 1 })}% rente.`;
