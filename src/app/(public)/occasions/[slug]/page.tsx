@@ -6,9 +6,15 @@ import { formatKm, formatMonthly, formatPrice, parseFeatures } from "@/lib/occas
 import { occasionMonthlyCents, financeTermLabel } from "@/lib/finance";
 import { SITE, SERVICES } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
-
 type Params = { params: Promise<{ slug: string }> };
+
+export async function generateStaticParams() {
+  const occasions = await getPrisma().occasion.findMany({
+    where: { status: "Published" },
+    select: { slug: true },
+  });
+  return occasions.map((o) => ({ slug: o.slug }));
+}
 
 export default async function OccasionDetailPage({ params }: Params) {
   const { slug } = await params;

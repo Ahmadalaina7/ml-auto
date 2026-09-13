@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   description: "Bekijk het actuele occasionaanbod van MLAuto in Middelburg. Jonge occasions, rijk uitgerust en scherp geprijsd.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function OccasionsPage() {
   const occasions = await getPrisma().occasion.findMany({
     where: { status: "Published" },

@@ -1,8 +1,8 @@
 # ML Auto
 
-Website voor autobedrijf ML Auto (Middelburg): publieke site + beveiligd CMS.
+Website voor autobedrijf ML Auto (Middelburg).
 
-## Lokaal
+## Lokaal ontwikkelen
 
 ```sh
 cp .env.example .env
@@ -12,50 +12,31 @@ npm run db:seed
 npm run dev
 ```
 
-Admin: `/admin`
+## Publiceren op Plesk (zoals je andere sites)
 
-## Plesk (belangrijk)
+Deze site gaat als **statische map `out/`** online. Geen Node.js nodig op Plesk.
 
-Zonder **Node.js** blijft je domein de Plesk-defaultpagina tonen. Alleen Git-koppelen is niet genoeg.
-
-### A. Git
-
-1. Extern repository: `https://github.com/Ahmadalaina7/ml-auto`
-2. **Zoekpad server** = website-map van het subdomain (waar de site naartoe moet), bv. `mlaoutos.webnestiq.nl`
-3. Vink **Aanvullende acties bij publicatie** aan:
+### 1. Lokaal bouwen en pushen
 
 ```sh
-bash scripts/plesk-deploy.sh
+npm run build:static
+git add out
+git commit -m "Update static site"
+git push
 ```
 
-4. Publiceren / Pull
-
-Het script:
-- verwijdert de Plesk-`index.html` (die blokkeert anders de app)
-- maakt `.env` aan als die ontbreekt
-- installeert dependencies, migreert de database, bouwt de site
-- seedt admin bij de eerste deploy
-
-### B. Node.js (verplicht)
-
-In Plesk → **Node.js** voor dit domein:
+### 2. In Plesk Git
 
 | Instelling | Waarde |
 | --- | --- |
-| Node.js-versie | **20 of hoger** |
-| Application root | map met `package.json` |
-| Application startup file | **`server.js`** |
-| Application mode | production |
-| Enabled | **Aan** |
+| Repository | `https://github.com/Ahmadalaina7/ml-auto` |
+| **Zoekpad server** | **`out`** (belangrijk) |
+| Publicatiemodus | Automatisch |
 
-Daarna **Herstarten**.
+Daarna Pull/Publiceren. Klaar: geen Node.js, geen deploy-script.
 
-### C. Wachtwoord wijzigen
+### Let op
 
-Na eerste deploy log in op `/admin` met:
-- e-mail: `admin@mlauto.nl`
-- wachtwoord: `WijzigDitWachtwoord123` (staat in `.env` → meteen wijzigen)
-
-### Lukt Node.js niet op je hosting?
-
-Dan kan deze Next.js-app (admin, database, formulieren) niet draaien op alleen statische hosting. Gebruik een VPS met Docker (`docker compose up -d --build`) of een pakket mét Node.js.
+- Voorraad/acties wijzigen: lokaal data aanpassen → opnieuw `npm run build:static` → push `out/`
+- Formulieren openen WhatsApp (past bij statische hosting)
+- Admin (`/admin`) werkt lokaal met `npm run dev`, niet op de statische Plesk-site

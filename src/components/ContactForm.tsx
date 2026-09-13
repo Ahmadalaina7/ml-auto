@@ -1,28 +1,55 @@
 "use client";
 
-import { useActionState } from "react";
-import { submitContactAction, type ContactFormState } from "@/actions/contact";
+import { useState, type FormEvent } from "react";
+import { SITE } from "@/lib/site";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 const inputClass =
   "w-full rounded-md border border-brand/20 bg-white px-4 py-3 text-base text-ink outline-none transition duration-fast focus:border-accent focus:ring-2 focus:ring-accent";
 
 export function ContactForm() {
-  const [state, formAction, pending] = useActionState<ContactFormState, FormData>(
-    submitContactAction,
-    null,
-  );
+  const [sent, setSent] = useState(false);
+
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const subject = String(data.get("subject") ?? "").trim() || "Contact";
+    const message = String(data.get("message") ?? "").trim();
+
+    const body = [
+      `Hallo MLAuto,`,
+      ``,
+      `Naam: ${name}`,
+      phone ? `Telefoon: ${phone}` : null,
+      `E-mail: ${email}`,
+      `Onderwerp: ${subject}`,
+      ``,
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.open(buildWhatsAppLink(SITE.whatsapp, body), "_blank", "noopener,noreferrer");
+    setSent(true);
+  }
 
   return (
     <div className="rounded-xl border border-surface bg-white p-6 shadow-1 sm:p-8">
-      {state?.success ? (
+      {sent ? (
         <div className="rounded-xl border border-strong/30 bg-strong/10 p-6">
-          <p className="font-display text-lg font-bold text-brand">Bericht verzonden</p>
+          <p className="font-display text-lg font-bold text-brand">WhatsApp geopend</p>
           <p className="mt-2 text-sm text-ink">
-            Bedankt voor je bericht! We reageren zo snel mogelijk, meestal binnen één werkdag.
+            Stuur het bericht om het bij ons af te leveren. Liever mailen?{" "}
+            <a href={`mailto:${SITE.email}`} className="font-black text-brand underline-offset-4 hover:underline">
+              {SITE.email}
+            </a>
           </p>
         </div>
       ) : (
-        <form action={formAction}>
+        <form onSubmit={onSubmit}>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="c-name" className="mb-1.5 block text-sm font-semibold text-ink">
@@ -73,18 +100,11 @@ export function ContactForm() {
             />
           </div>
 
-          {state?.error && (
-            <p role="alert" className="mt-4 rounded-md border border-error-border bg-error-soft px-4 py-3 text-sm text-error">
-              {state.error}
-            </p>
-          )}
-
           <button
             type="submit"
-            disabled={pending}
-            className="mt-5 w-full sm:w-auto rounded-md bg-accent px-6 py-2.5 font-black text-brand text-sm sm:text-base transition duration-fast hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-5 w-full rounded-md bg-accent px-6 py-2.5 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark sm:w-auto sm:text-base"
           >
-            {pending ? "Versturen…" : "Verstuur bericht"}
+            Verstuur via WhatsApp
           </button>
         </form>
       )}

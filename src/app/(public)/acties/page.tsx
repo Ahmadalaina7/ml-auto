@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: "Bekijk de actuele acties en aanbiedingen van MLAuto in Middelburg.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function ActiesPage() {
   const acties = await getPrisma().actie.findMany({
     where: { status: "Published", startsAt: { lte: new Date() } },

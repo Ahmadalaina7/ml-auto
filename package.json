@@ -21,6 +21,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "node scripts/build-static.mjs",
     "start": "node server.js",
     "start:next": "next start",
     "lint": "eslint",
@@ -31,7 +32,7 @@
     "db:migrate": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
-    "deploy:plesk": "bash scripts/plesk-deploy.sh"
+    "deploy:plesk": "node scripts/build-static.mjs"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "7.10.0",

@@ -12,8 +12,6 @@ export const metadata: Metadata = {
     "MLAuto in Middelburg: jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function HomePage() {
   const db = getPrisma();
 
