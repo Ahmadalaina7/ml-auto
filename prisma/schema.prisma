@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Beheerder(s) van het CMS.
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+// Auto in de occasionvoorraad.
+model Occasion {
+  id           Int      @id @default(autoincrement())
+  slug         String   @unique
+  brand        String
+  model        String
+  // Specifieke uitvoering, bv. "1.5 TSI Life"
+  variant      String   @default("")
+  bodyType     String   @default("")
+  title        String
+  year         Int
+  mileageKm    Int
+  fuel         String
+  transmission String
+  powerKw      Int      @default(0)
+  doors        Int      @default(5)
+  color        String   @default("")
+  priceCents   Int
+  // Vanafprijs per maand (financiering/lease). 0 = berekenen op basis van prijs.
+  monthlyFromCents Int @default(0)
+  description  String
+  // JSON-string: array van extra's/opties.
+  features     String   @default("[]")
+  images       String   @default("[]")
+  featured     Boolean  @default(false)
+  status       String   @default("Draft") // Draft | Published | Sold
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Promotie/actie op de acties-pagina.
+model Actie {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  title     String
+  badge     String   @default("")
+  summary   String
+  body      String
+  image     String   @default("")
+  featured  Boolean  @default(false)
+  startsAt  DateTime
+  endsAt    DateTime?
+  status    String   @default("Draft") // Draft | Published
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Inbox-item voor een werkplaatsafspraak.
+model Afspraak {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String   @default("")
+  service   String   // APK | Onderhoud | Reparatie | Banden | Overig
+  date      String   // YYYY-MM-DD
+  timeSlot  String
+  notes     String   @default("")
+  status    String   @default("New") // New | Confirmed | Done | Cancelled
+  createdAt DateTime @default(now())
+}
+
+// Inbox-item voor een online taxatie-aanvraag.
+model Taxatie {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String
+  phone        String
+  brand        String
+  model        String
+  year         Int
+  mileageKm    Int
+  fuel         String   @default("")
+  condition    String   @default("")
+  notes        String   @default("")
+  status       String   @default("New") // New | Handled
+  createdAt    DateTime @default(now())
+}
+
+// Contactformulier-berichten.
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String   @default("")
+  subject   String   @default("")
+  message   String
+  status    String   @default("New") // New | Handled
+  createdAt DateTime @default(now())
+}

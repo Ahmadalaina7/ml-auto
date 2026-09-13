@@ -1,0 +1,32 @@
+services:
+  ml-auto:
+    image: ml-auto:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: "file:/app/data/mlauto.db"
+      DATA_DIR: "/app/data"
+      # Vereist: AUTH_SECRET in het lokale .env-bestand (minimaal 32 tekens).
+      AUTH_SECRET: "${AUTH_SECRET:?Zet AUTH_SECRET in je .env-bestand}"
+      ADMIN_EMAIL: "${ADMIN_EMAIL:-admin@mlauto.nl}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD?Zet ADMIN_PASSWORD in je .env-bestand}"
+      SMTP_HOST: "${SMTP_HOST:-}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_SECURE: "${SMTP_SECURE:-false}"
+      SMTP_USER: "${SMTP_USER:-}"
+      SMTP_PASS: "${SMTP_PASS:-}"
+      MAIL_FROM: "${MAIL_FROM:-noreply@mlauto.nl}"
+      MAIL_TO: "${MAIL_TO:-info@mlauto.nl}"
+      LOG_LEVEL: "${LOG_LEVEL:-info}"
+      # Zet op 1 om bij eerste start demo-content te seeden.
+      ML_AUTO_SEED: "${ML_AUTO_SEED:-0}"
+    volumes:
+      - mlauto-data:/app/data
+
+volumes:
+  mlauto-data:

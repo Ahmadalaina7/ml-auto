@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+/*
+ * MLAuto design system – "Thuis in Zeeland, bij de weg naar je volgende auto."
+ * Gebouwd op dezelfde functionele kern als 'De Volkswagen, Audi, SEAT en Škoda
+ * dealer' (Auto Poppe), maar met een eigen visuele identiteit:
+ *   – "Meridiaan-blauw" diepe zee-blauwen (#001E50 / #0B2A6B)
+ *   – Duinzand als licht canvas i.p.v. grijs
+ *   – Seinoranje als enige CTA-kleur (deel van de Zeeuwse vuurtoren/boei-taal)
+ *   – Teal "Deltawater" voor vertrouwde info-blokken
+ *   – "Route" vormtaal: stippellijn + pijl als signatuurelement
+ *
+ * Tokens:
+ *   font.family.primary = Mukta Mahee | weight.base = 400 | lineHeight.base = 1.55
+ *   color.text.primary = #141A45 | text.inverse = #FFFFFF (op donker)
+ *   color.text.inverse (op accent) = #001E50
+ *   surface.base = #000000 | surface.strong = #56C8A4 | surface.muted = #FF9233
+ *   border.strong = #F5F5F5 | accent = #FF9233 | brand = #001E50 | brand-2 = #0B2A6B
+ *   spacing 1..8 = 12/16/18/24/29/48/72/96 | shadow 1..2 | motion instant=300ms fast=400ms
+ */
+
+/* --font-mukta wordt via next/font (Mukta Mahee) op <html> gezet. */
+.font-display {
+  font-family: var(--font-mukta, "Mukta Mahee", sans-serif);
+}
+
+@theme inline {
+  /* --- Brand & surfaces --- */
+  --color-brand: #001e50; /* Meridiaan-blauw, primaire merkkleur */
+  --color-brand-2: #0b2a6b; /* Meridiaan-blauw licht, hover/secondaire tint */
+  --color-brand-dark: #000000; /* surface.base – ondergrondbasis */
+  --color-accent: #ff9233; /* Seinoranje, primaire actiekleur (surface.muted) */
+  --color-accent-dark: #df7413; /* seinoranje – hover */
+  --color-strong: #56c8a4; /* Deltawater teal, bevestiging/info (surface.strong) */
+  --color-strong-dark: #33a185; /* deltawater teal – hover */
+  --color-sand: #f4f1ea; /* Duinzand – licht canvas */
+  --color-surface: #f5f5f5; /* border.strong / neutraal licht canvas */
+
+  /* --- Text --- */
+  --color-ink: #141a45; /* text.primary */
+  --color-muted: #3a4470; /* text.tertiary */
+  --color-faint: #5d6773; /* vervolg-schaal, alleen voor niet-essentiële info */
+
+  /* --- Functioneel (formulieren/status) --- */
+  --color-success: #15803d;
+  --color-success-soft: #f0fdf4;
+  --color-success-border: #bbf7d0;
+  --color-error: #b91c1c;
+  --color-error-soft: #fef2f2;
+  --color-error-border: #fecaca;
+  --color-whatsapp: #25d366;
+
+  /* --- Typografie --- */
+  --font-sans: var(--font-mukta, "Mukta Mahee"), "Mukta Mahee", sans-serif;
+  --font-base-wght: 400;
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-base: 18px;
+  --text-base--line-height: 1.55;
+  --text-lg: 22px;
+  --text-xl: 26px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+  --text-4xl: 52px;
+  --text-5xl: 64px;
+
+  /* --- Shadows --- */
+  --shadow-1: rgba(74, 74, 74, 0.6) 0px 0px 5px 0px;
+  --shadow-2: rgba(0, 0, 0, 0.24) 0px 2px 34px 0px;
+
+  /* --- Motion --- */
+  --duration-instant: 300ms;
+  --duration-fast: 400ms;
+}
+
+/* --- Basis --- */
+body {
+  @apply bg-white text-ink font-sans antialiased;
+  font-weight: var(--font-base-wght);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-brand);
+}
+
+/* Focus-indicator: contractrijk op lichte én op donkere vlakken. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+.on-dark :focus-visible,
+.quick-action :focus-visible {
+  outline-color: #ffffff;
+}
+
+/* --- "Route": signatuurelement (stippellijn + pijl) --- */
+.route-line::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background-image: radial-gradient(circle at 2px 2px, var(--color-accent) 2px, transparent 2.5px);
+  background-size: 14px 4px;
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  margin-bottom: 8px;
+}
+
+/* --- Scroll-reveal (motion.token: fast = 400ms) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 400ms ease,
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Hero: rustige Ken Burns-zoom + entree --- */
+@keyframes mla-kenburns {
+  from {
+    transform: scale(1.01);
+  }
+  to {
+    transform: scale(1.1) translateY(-1.5%);
+  }
+}
+.hero-zoom {
+  animation: mla-kenburns 26s ease-out forwards;
+}
+
+@keyframes mla-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: mla-rise 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes mla-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pop-in {
+  animation: mla-pop 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Bewegen van de "route" lijn op hero (subtiel, optioneel) --- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes mla-route {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -14px;
+    }
+  }
+  .route-animate::before {
+    animation: mla-route 3s linear infinite;
+  }
+}
+
+/* --- Paginatransities (View Transitions API) --- */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(mla-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(mla-header) {
+  display: none;
+}
+::view-transition-new(mla-header) {
+  animation: none;
+}
+::view-transition-old(.page-exit) {
+  animation: 300ms ease-in both mla-fade-out;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    300ms ease-out 180ms both mla-fade-in,
+    400ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both mla-rise-small;
+}
+
+@keyframes mla-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes mla-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mla-rise-small {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .rise,
+  .hero-zoom,
+  .pop-in {
+    animation-duration: 0s;
+    animation-delay: 0s;
+    animation: none;
+    transition: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
