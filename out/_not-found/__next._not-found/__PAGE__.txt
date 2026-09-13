@@ -1,25 +1,44 @@
 1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/22i43cg4l4-dq.js"],""]
-3:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-8:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
-9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
-a:I[27201,["/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
-c:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
-d:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
-10:I[58298,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1qqzsqd2x6t8f.js"],"default"]
-:HL["/_next/static/chunks/0ct1fb8gbx46y.css","style"]
-7:X
-f:X
-f:C
-0:{"buildId":"z68qWlL8WMkHx8UOlUZKR","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center","children":[["$","p",null,{"className":"font-display text-3xl font-bold text-brand","children":"404"}],["$","h1",null,{"className":"mt-4 text-2xl font-bold text-ink","children":"Pagina niet gevonden"}],["$","p",null,{"className":"mt-3 text-muted","children":"De opgevraagde pagina bestaat niet of is inmiddels verplaatst."}],["$","div",null,{"className":"mt-8 flex gap-4","children":[["$","$L2",null,{"href":"/","className":"rounded-md bg-accent px-6 py-3 font-black text-brand transition duration-fast hover:bg-accent-dark","children":"Naar de startpagina"}],["$","$L2",null,{"href":"/contact","className":"rounded-md border border-brand px-6 py-3 font-black text-brand transition duration-fast hover:bg-brand hover:text-white","children":"Contact opnemen"}]]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/22i43cg4l4-dq.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"MLAuto – Occasionverkoop, inkoop en onderhoud in Middelburg"}],["$","meta","1",{"name":"description","content":"MLAuto in Middelburg: occasionverkoop en inkoop, werkplaatsafspraak, online taxatie, reparatie en onderhoud. Voltaweg 21, 4338 PS Middelburg."}],["$","meta","2",{"property":"og:title","content":"MLAuto – Occasionverkoop, inkoop en onderhoud in Middelburg"}],["$","meta","3",{"property":"og:description","content":"Jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland, bij je in de buurt."}],["$","meta","4",{"property":"og:site_name","content":"MLAuto"}],["$","meta","5",{"property":"og:locale","content":"nl_NL"}],["$","meta","6",{"property":"og:type","content":"website"}],["$","meta","7",{"name":"twitter:card","content":"summary"}],["$","meta","8",{"name":"twitter:title","content":"MLAuto – Occasionverkoop, inkoop en onderhoud in Middelburg"}],["$","meta","9",{"name":"twitter:description","content":"Jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland, bij je in de buurt."}],["$","link","10",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$La","11",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@b","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}]}]]}],"isPartial":"$@e","staleTime":"$7","varyParams":"$f"},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ct1fb8gbx46y.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true}]],["$","html",null,{"lang":"nl","className":"mukta_mahee_21d513-module__5kEopa__variable","children":["$","body",null,{"className":"min-h-screen bg-white text-ink","children":[["$","a",null,{"href":"#main","className":"sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white","children":"Direct naar inhoud"}],["$","$Lc",null,{"parallelRouterKey":"children","error":"$10","errorStyles":[],"errorScripts":[["$","script","script-0",{"src":"/_next/static/chunks/1qqzsqd2x6t8f.js","async":true}]],"template":["$","$Ld",null,{}],"notFound":[["$","div",null,{"className":"mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center","children":[["$","p",null,{"className":"font-display text-3xl font-bold text-brand","children":"404"}],["$","h1",null,{"className":"mt-4 text-2xl font-bold text-ink","children":"Pagina niet gevonden"}],["$","p",null,{"className":"mt-3 text-muted","children":"De opgevraagde pagina bestaat niet of is inmiddels verplaatst."}],"$L11"]}],[]]}]]}]}]]}],"isPartial":"$@12","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
-5:null
-11:["$","div",null,{"className":"mt-8 flex gap-4","children":[["$","$L2",null,{"href":"/","className":"rounded-md bg-accent px-6 py-3 font-black text-brand transition duration-fast hover:bg-accent-dark","children":"Naar de startpagina"}],["$","$L2",null,{"href":"/contact","className":"rounded-md border border-brand px-6 py-3 font-black text-brand transition duration-fast hover:bg-brand hover:text-white","children":"Contact opnemen"}]]}]
-7:300
-14:true
-7:C
-13:0
-b:"$undefined"
-e:"$undefined"
-12:"$undefined"
-6:"$undefined"
+2:I[36852,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/2a3f8-6vwub_2.js"],"SiteHeader"]
+3:I[22016,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/2a3f8-6vwub_2.js"],""]
+4:I[36852,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/2a3f8-6vwub_2.js"],"SiteFooter"]
+6:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+c:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+5:T450,M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Za:X
+24:X
+24:C
+0:{"buildId":"9zAF8fDbpI9ApdOE632cX","data":[{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"id":"main","className":"pb-16 sm:pb-0","children":["$","div",null,{"className":"mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center","children":[["$","p",null,{"className":"font-display text-3xl font-bold text-brand","children":"404"}],["$","h1",null,{"className":"mt-4 text-2xl font-bold text-ink","children":"Pagina niet gevonden"}],["$","p",null,{"className":"mt-3 text-muted","children":"De opgevraagde pagina bestaat niet of is inmiddels verplaatst."}],["$","div",null,{"className":"mt-8 flex flex-wrap justify-center gap-4","children":[["$","$L3",null,{"href":"/","className":"rounded-md bg-accent px-6 py-3 font-black text-brand transition duration-fast hover:bg-accent-dark","children":"Naar de startpagina"}],["$","$L3",null,{"href":"/contact","className":"rounded-md border border-brand px-6 py-3 font-black text-brand transition duration-fast hover:bg-brand hover:text-white","children":"Contact opnemen"}]]}]]}]}],["$","$L4",null,{}],["$","a",null,{"href":"https://wa.me/31646830085?text=Hallo%20MLAuto's%2C%20ik%20heb%20een%20vraag%20over%20jullie%20occasions%20of%20werkplaats.","target":"_blank","rel":"noopener noreferrer","className":"fixed z-50 flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-white shadow-1 transition duration-fast hover:-translate-y-0.5 hover:shadow-2 hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white","style":{"bottom":"max(1rem, env(safe-area-inset-bottom))","right":"max(1rem, env(safe-area-inset-right))"},"aria-label":"Stel een vraag via WhatsApp","title":"Stel een vraag via WhatsApp","children":["$","svg",null,{"width":"26","height":"26","viewBox":"0 0 24 24","fill":"currentColor","aria-hidden":"true","children":["$","path",null,{"d":"$5"}]}]}]],[["$","script","script-0",{"src":"/_next/static/chunks/2a3f8-6vwub_2.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"MLAuto's – Occasionverkoop, inkoop en onderhoud in Middelburg"}],["$","meta","1",{"name":"description","content":"MLAuto's in Middelburg: occasionverkoop en inkoop, werkplaatsafspraak, online taxatie, reparatie en onderhoud. Voltaweg 21, 4338 PS Middelburg."}],"$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f"]}]}]}],"$L20"]}],"isPartial":"$@21","staleTime":"$a","varyParams":null},{"rsc":"$L22","isPartial":"$@23","staleTime":"$a","varyParams":"$24"}],"isUpgradeableISRFallback":false,"a":"$@25","rootVaryParams":null,"needsRuntimeRequest":"$@26"}
+27:I[27201,["/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
+28:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+29:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+8:null
+d:["$","meta","2",{"property":"og:title","content":"MLAuto's – Occasionverkoop, inkoop en onderhoud in Middelburg"}]
+e:["$","meta","3",{"property":"og:description","content":"Jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland, bij je in de buurt."}]
+f:["$","meta","4",{"property":"og:site_name","content":"MLAuto's"}]
+10:["$","meta","5",{"property":"og:locale","content":"nl_NL"}]
+11:["$","meta","6",{"property":"og:image","content":"https://www.mlauto.nl/images/showroom.jpg"}]
+12:["$","meta","7",{"property":"og:image:width","content":"1200"}]
+13:["$","meta","8",{"property":"og:image:height","content":"630"}]
+14:["$","meta","9",{"property":"og:image:alt","content":"MLAuto's showroom Middelburg"}]
+15:["$","meta","10",{"property":"og:type","content":"website"}]
+16:["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}]
+17:["$","meta","12",{"name":"twitter:title","content":"MLAuto's – Occasionverkoop, inkoop en onderhoud in Middelburg"}]
+18:["$","meta","13",{"name":"twitter:description","content":"Jonge occasions, eerlijke inkoop, online taxatie en een eigen werkplaats. Midden in Zeeland, bij je in de buurt."}]
+19:["$","meta","14",{"name":"twitter:image","content":"https://www.mlauto.nl/images/showroom.jpg"}]
+1a:["$","meta","15",{"name":"twitter:image:alt","content":"MLAuto's showroom Middelburg"}]
+1b:["$","meta","16",{"name":"twitter:image:width","content":"1200"}]
+1c:["$","meta","17",{"name":"twitter:image:height","content":"630"}]
+1d:["$","link","18",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+1e:["$","link","19",{"rel":"icon","href":"/icon.svg?icon.0r_579sgf1ihz.svg","sizes":"any","type":"image/svg+xml"}]
+1f:["$","$L27","20",{}]
+20:["$","meta",null,{"name":"next-size-adjust","content":""}]
+22:["$","$1","c",{"children":[null,["$","$L28",null,{"parallelRouterKey":"children","template":["$","$L29",null,{}]}]]}]
+26:true
+a:300
+a:C
+25:0
+21:"$undefined"
+23:"$undefined"
+9:"$undefined"
