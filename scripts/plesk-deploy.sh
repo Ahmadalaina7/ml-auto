@@ -1,29 +1,42 @@
 #!/bin/bash
-# Plesk Git → "Aanvullende acties bij publicatie" (optioneel):
+# Plesk Git → "Aanvullende acties bij publicatie":
 #   bash scripts/plesk-deploy.sh
 #
-# Werkt als Zoekpad = map met package.json (hele repo).
-# .htaccess stuurt traffic naar out/. Dit script ruimt alleen de Plesk-defaultpagina op.
+# Zoekpad = map met package.json (hele repo).
+# 1) Kopieert out/ naar document root zodat / direct werkt
+# 2) Ruimt Plesk-defaultpagina op
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 if [ ! -f out/index.html ]; then
-  echo "FOUT: out/index.html ontbreekt. Push eerst een static build (npm run build:static)."
+  echo "FOUT: out/index.html ontbreekt. Push eerst: npm run build:static"
   exit 1
 fi
 
-if [ ! -f .htaccess ]; then
-  echo "FOUT: .htaccess ontbreekt in de repo-root."
-  exit 1
+echo "==> Statische site uit out/ naar document root kopiëren"
+# shellcheck disable=SC2086
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a out/ ./ \
+    --exclude '.git' \
+    --exclude 'node_modules' \
+    --exclude 'src' \
+    --exclude 'scripts' \
+    --exclude 'prisma' \
+    --exclude 'out'
+else
+  cp -a out/. ./
 fi
 
-# Plesk-defaultpagina blokkeert soms DirectoryIndex naar out/
 if [ -f index.html ] && grep -qi "Domain Default page\|default-website-index" index.html 2>/dev/null; then
-  echo "==> Plesk-defaultpagina verwijderen"
-  rm -f index.html index.htm
+  echo "==> Plesk-defaultpagina vervangen mislukt; forceer out/index.html"
+  cp -f out/index.html index.html
 fi
 
-echo "==> Klaar. Site wordt geserveerd vanuit out/ via .htaccess"
-echo "    Controleer: https://jouw-domein/"
+# Zorg dat DirectoryIndex klopt (rewrite dekt out/ ook)
+if [ ! -f .htaccess ]; then
+  printf '%s\n' 'DirectoryIndex index.html' > .htaccess
+fi
+
+echo "==> Klaar. Controleer https://jouw-domein/ (hard refresh)"

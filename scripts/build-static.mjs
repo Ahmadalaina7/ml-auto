@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { rename, access, rm } from "node:fs/promises";
+import { rename, access, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
@@ -49,6 +49,11 @@ async function main() {
     run("npx", ["prisma", "migrate", "deploy"]);
     run("npm", ["run", "db:seed"]);
     run("npm", ["run", "build"], { STATIC_EXPORT: "1" });
+    await writeFile(
+      path.join(root, "out", ".htaccess"),
+      "DirectoryIndex index.html\n",
+      "utf8",
+    );
     console.log("==> Klaar: map out/ is bijgewerkt. Push + Plesk pull (.htaccess serveert out/ op het domein).");
   } finally {
     await movePairs(hide, true);

@@ -30,13 +30,13 @@ git push
 | Instelling | Waarde |
 | --- | --- |
 | Repository | `https://github.com/Ahmadalaina7/ml-auto` |
-| Zoekpad server | map met `package.json` **of** map `out` |
+| Zoekpad server | map met `package.json` (hele repo) |
 | Publicatiemodus | Automatisch |
-| Aanvullende actie (aanbevolen) | `bash scripts/plesk-deploy.sh` |
+| Aanvullende actie | `bash scripts/plesk-deploy.sh` (**verplicht**) |
 
 Daarna **Pull / Publiceren**. Geen Node.js nodig.
 
-Als de Plesk-defaultpagina blijft staan: run de aanvullende actie of verwijder handmatig `index.html` in de document root (alleen als die de Plesk-tekst “Domain Default page” bevat).
+Het script kopieert `out/` naar de document root en herstelt `DirectoryIndex`. Zonder die actie geeft `/` vaak een 404 terwijl `/index.html` wél werkt.
 
 ### Let op
 
