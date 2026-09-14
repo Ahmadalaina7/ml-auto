@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72" fill="none" role="img" aria-label="ML AUTO'S">
+  <!-- L (achter) -->
+  <path fill="#F3F4F6" d="M78 8h22v42h72v14H78V8z"/>
+  <!-- M (voor, rood) -->
+  <path fill="#DC2626" d="M8 64V8h26l18 34 18-34h26v56H74V28L56 64H42L24 28v36H8z"/>
+  <!-- AUTO'S -->
+  <text x="108" y="42" fill="#FFFFFF" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="22" font-weight="800" letter-spacing="1.5">AUTO'S</text>
+</svg>

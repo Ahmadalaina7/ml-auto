@@ -37,55 +37,68 @@ export const NAV_LINKS = [
 
 export const SERVICES = [
   {
-    slug: "onderhoud",
-    title: "Onderhoud & beurten",
+    slug: "inkoop-verkoop",
+    title: "Inkoop en verkoop",
     description:
-      "Periodiek onderhoud volgens voorschrift van de fabrikant: kleine en grote beurten, inclusief vloeistoffen, filters en volledige controle.",
-    price: "Vanaf € 89",
+      "Jonge occasions kopen of jouw auto verkopen/inruilen. Eerlijke taxatie, duidelijke prijzen en snelle afhandeling.",
+    price: "Taxatie & voorraad",
+    href: "/occasions",
+    cta: "Bekijk occasions →",
   },
   {
-    slug: "reparatie",
-    title: "Reparatie & diagnose",
+    slug: "onderhoud-apk",
+    title: "Onderhoud en APK",
     description:
-      "Wij sporen storingen snel op met moderne diagnoseapparatuur en repareren de oorzaak, niet alleen het symptoom.",
-    price: "Offerte op afspraak",
-  },
-  {
-    slug: "apk",
-    title: "APK-keuring",
-    description:
-      "APK-keuring in onze eigen werkplaats. Komt er iets uit de keuring? Dan ontvang je altijd eerst een vrijblijvende offerte.",
-    price: "Vanaf € 64,95",
-  },
-  {
-    slug: "banden",
-    title: "Banden- en velgservice",
-    description:
-      "Nieuwe banden, wisselset, uitlijnen en balanceren. Altijd de juiste band voor jouw rijgedrag en seizoen.",
-    price: "Vanaf € 25 per band",
+      "Periodiek onderhoud en APK-keuring in onze eigen werkplaats. Heldere offertes vooraf, zodat je weet waar je aan toe bent.",
+    price: "Afspraak maken",
+    href: "/werkplaats",
+    cta: "Plan afspraak →",
   },
   {
     slug: "schade",
-    title: "Schadeherstel",
+    title: "Schadeherstel en schade-expertises",
     description:
-      "Blikschade, lakreparatie of spuitwerk: wij herstellen het zorgvuldig, vaak in overleg met jouw verzekering.",
-    price: "Gratis schadebeoordeling",
+      "Schade herstellen én laten beoordelen. Wij helpen bij expertise, herstel en afstemming met jouw verzekering.",
+    price: "Gratis beoordeling",
+    href: "/werkplaats",
+    cta: "Plan afspraak →",
   },
   {
-    slug: "inkoop",
-    title: "Occasion inkoop & inruil",
+    slug: "spuitwerk",
+    title: "Spuitwerkzaamheden",
     description:
-      "Verkoop je auto aan ons of ruil hem in. Een eerlijke taxatie met directe uitbetaling, zonder verplichtingen.",
-    price: "Direct een bod",
+      "Professioneel spuitwerk en lakherstel. Van kleine reparaties tot grotere werkzaamheden, netjes afgewerkt.",
+    price: "Offerte op maat",
+    href: "/werkplaats",
+    cta: "Plan afspraak →",
+  },
+  {
+    slug: "import",
+    title: "Importprocedures",
+    description:
+      "Hulp bij de import van jouw auto: papieren, keuringen en procedures zodat alles correct en soepel verloopt.",
+    price: "Advies op maat",
+    href: "/contact",
+    cta: "Neem contact op →",
+  },
+  {
+    slug: "export",
+    title: "Export documenten",
+    description:
+      "Wij verzorgen de juiste documenten voor export, zodat jouw auto correct en zonder gedoe de grens over kan.",
+    price: "Advies op maat",
+    href: "/contact",
+    cta: "Neem contact op →",
   },
 ] as const;
 
 export const APPOINTMENT_SERVICES = [
-  "APK",
-  "Onderhoud",
-  "Reparatie",
-  "Banden",
-  "Schade",
+  "Onderhoud en APK",
+  "Schadeherstel",
+  "Schade-expertise",
+  "Spuitwerk",
+  "Import",
+  "Export",
   "Overig",
 ] as const;
 

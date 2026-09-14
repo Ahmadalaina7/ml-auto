@@ -7,17 +7,15 @@ import { NAV_LINKS, SITE } from "@/lib/site";
 
 function Logo() {
   return (
-    <span className="inline-flex items-center gap-2 sm:gap-2.5">
-      <span
-        aria-hidden="true"
-        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-accent font-display text-base font-black leading-none text-brand sm:h-9 sm:w-9 sm:text-lg"
-      >
-        M
-      </span>
-      <span className="font-display text-lg font-black leading-none tracking-tight text-white sm:text-xl">
-        ML<span className="text-accent">AUTO&apos;S</span>
-      </span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/logo-ml-autos.png"
+      alt=""
+      width={168}
+      height={52}
+      className="h-8 w-auto object-contain object-left sm:h-9"
+      decoding="async"
+    />
   );
 }
 
@@ -31,10 +29,10 @@ function PhoneIcon({ size = 16 }: { size?: number }) {
 
 function navLinkClass(active: boolean) {
   return [
-    "view-transition-link whitespace-nowrap rounded-md px-2 py-1.5 text-[13px] transition duration-fast xl:px-2.5 xl:text-sm",
+    "view-transition-link relative whitespace-nowrap px-2.5 py-2 text-sm transition duration-fast lg:px-3",
     active
-      ? "font-semibold text-accent bg-white/5"
-      : "font-medium text-white/70 hover:text-accent hover:bg-white/5",
+      ? "font-semibold text-white after:absolute after:inset-x-2.5 after:bottom-0 after:h-0.5 after:rounded-full after:bg-accent"
+      : "font-medium text-white/70 hover:text-white",
   ].join(" ");
 }
 
@@ -63,26 +61,34 @@ export function SiteHeader() {
 
   return (
     <header className="on-dark sticky top-0 z-40 border-b border-white/10 bg-brand/95 text-white shadow-2 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:h-[4.25rem] sm:px-6">
         <Link href="/" className="inline-flex shrink-0 items-center" aria-label={`${SITE.name}, naar de homepage`}>
           <Logo />
         </Link>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex" aria-label="Hoofdnavigatie">
+        <nav
+          className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex"
+          aria-label="Hoofdnavigatie"
+        >
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
-              <Link key={link.href} href={link.href} className={navLinkClass(active)} aria-current={active ? "page" : undefined}>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={navLinkClass(active)}
+                aria-current={active ? "page" : undefined}
+              >
                 {link.label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href={`tel:${SITE.phone}`}
-            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-white/75 transition duration-fast hover:text-accent xl:inline-flex"
+            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-white/80 transition duration-fast hover:text-white xl:inline-flex"
           >
             <PhoneIcon />
             <span>{SITE.phoneDisplay}</span>
@@ -90,7 +96,7 @@ export function SiteHeader() {
 
           <Link
             href="/werkplaats"
-            className="hidden items-center whitespace-nowrap rounded-md bg-accent px-4 py-2 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white hover:shadow-2 sm:inline-flex"
+            className="hidden items-center whitespace-nowrap rounded-md bg-accent px-4 py-2 text-sm font-black text-white transition duration-fast hover:bg-accent-dark hover:shadow-2 sm:inline-flex"
           >
             Plan afspraak
           </Link>
@@ -101,7 +107,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? "Menu sluiten" : "Menu openen"}
-            className="rounded-md p-2 text-white/90 transition duration-fast hover:bg-white/10 xl:hidden"
+            className="rounded-md p-2 text-white/90 transition duration-fast hover:bg-white/10 lg:hidden"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               {open ? (
@@ -138,7 +144,7 @@ function MobilePanel({
     <nav
       id={id}
       aria-label="Mobiele navigatie"
-      className="on-dark border-t border-white/10 bg-brand px-4 pb-6 pt-4 shadow-2 xl:hidden"
+      className="on-dark border-t border-white/10 bg-brand px-4 pb-6 pt-4 lg:hidden"
     >
       <ul className="space-y-1" role="list">
         {NAV_LINKS.map((link) => {
@@ -151,8 +157,8 @@ function MobilePanel({
                 aria-current={active ? "page" : undefined}
                 className={`block rounded-md px-3 py-2.5 text-sm transition duration-fast ${
                   active
-                    ? "bg-white/10 font-semibold text-accent"
-                    : "font-medium text-white/75 hover:bg-white/5 hover:text-accent"
+                    ? "bg-accent font-semibold text-white"
+                    : "font-medium text-white/80 hover:bg-white/5 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -174,7 +180,7 @@ function MobilePanel({
         <Link
           href="/werkplaats"
           onClick={onNavigate}
-          className="block w-full rounded-md bg-accent px-5 py-2.5 text-center text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
+          className="block w-full rounded-md bg-accent px-5 py-2.5 text-center text-sm font-black text-white transition duration-fast hover:bg-accent-dark"
         >
           Plan afspraak
         </Link>

@@ -107,7 +107,7 @@ export function ContactForm() {
 
           <button
             type="submit"
-            className="mt-5 w-full rounded-md bg-accent px-6 py-2.5 text-sm font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white sm:w-auto sm:text-base"
+            className="mt-5 w-full rounded-md bg-accent px-6 py-2.5 text-sm font-black text-white transition duration-fast hover:bg-accent-dark sm:w-auto sm:text-base"
           >
             Verstuur via WhatsApp
           </button>

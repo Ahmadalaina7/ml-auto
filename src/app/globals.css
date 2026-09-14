@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 /*
- * MLAuto design system – Luxury black + gold (UI/UX Pro Max)
+ * MLAuto design system – Logo black + red + white (UI/UX Pro Max)
  * "Thuis in Zeeland, bij de weg naar je volgende auto."
  *
- * Richting: Luxury/Premium Brand + Automotive
- *   – Primary black #0C0A09 / #1C1917
- *   – Accent goud #C9A227 (CTA)
- *   – Canvas #FAFAF9 (stone light)
- *   – Donkere chrome (header/footer/hero) voor premium feel
+ * Richting: Automotive brand (logo-kleuren)
+ *   – Primary black #0A0A0A
+ *   – Accent rood #DC2626 (CTA, logo M)
+ *   – Wit voor tekst op donker / AUTO'S
+ *   – Canvas #F8FAFC
+ *   – Header: garagefoto + donkere overlay
  */
 
 .font-display {
@@ -16,21 +17,21 @@
 }
 
 @theme inline {
-  /* --- Brand & surfaces (luxe zwart + goud) --- */
-  --color-brand: #0c0a09; /* Diep zwart */
-  --color-brand-2: #292524; /* Steen-zwart hover */
+  /* --- Brand & surfaces (logo: zwart + rood + wit) --- */
+  --color-brand: #0a0a0a;
+  --color-brand-2: #1c1917;
   --color-brand-dark: #000000;
-  --color-accent: #c9a227; /* Goud */
-  --color-accent-dark: #a16207; /* Goud diep */
-  --color-strong: #a8a29e; /* Champagne/steen voor subtiele highlights */
-  --color-strong-dark: #78716c;
-  --color-sand: #fafaf9; /* Soft stone canvas */
-  --color-surface: #e7e5e4;
+  --color-accent: #dc2626;
+  --color-accent-dark: #b91c1c;
+  --color-strong: #64748b;
+  --color-strong-dark: #475569;
+  --color-sand: #f8fafc;
+  --color-surface: #e2e8f0;
 
   /* --- Text --- */
-  --color-ink: #0c0a09;
-  --color-muted: #57534e;
-  --color-faint: #78716c;
+  --color-ink: #0f172a;
+  --color-muted: #475569;
+  --color-faint: #64748b;
 
   /* --- Functioneel --- */
   --color-success: #15803d;
@@ -56,8 +57,8 @@
   --text-5xl: 64px;
 
   /* --- Shadows --- */
-  --shadow-1: rgba(12, 10, 9, 0.1) 0px 1px 3px 0px, rgba(12, 10, 9, 0.06) 0px 1px 2px 0px;
-  --shadow-2: rgba(12, 10, 9, 0.18) 0px 10px 32px 0px;
+  --shadow-1: rgba(10, 10, 10, 0.1) 0px 1px 3px 0px, rgba(10, 10, 10, 0.06) 0px 1px 2px 0px;
+  --shadow-2: rgba(10, 10, 10, 0.2) 0px 10px 32px 0px;
 
   /* --- Motion --- */
   --duration-instant: 300ms;
@@ -74,7 +75,7 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: #0c0a09;
+  color: #ffffff;
 }
 
 :focus-visible {

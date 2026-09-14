@@ -196,7 +196,7 @@ export function OccasionForm({ action, initial }: Props) {
         <button
           type="submit"
           disabled={pending}
-          className="rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-md bg-accent px-6 py-2.5 font-black text-white transition duration-fast hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40"
         >
           {pending ? "Opslaan…" : initial?.id ? "Wijzigingen opslaan" : "Occasion aanmaken"}
         </button>

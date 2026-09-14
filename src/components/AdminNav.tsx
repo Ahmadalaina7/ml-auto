@@ -20,7 +20,7 @@ export function AdminNav({ email }: { email: string }) {
     <header className="on-dark bg-brand-dark text-white shadow-1">
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
         <Link href="/admin" className="font-display text-lg font-black tracking-tight">
-          <span className="mr-1 inline-flex h-6 w-6 items-center justify-center rounded-md bg-accent text-sm font-black text-brand">M</span>
+          <span className="mr-1 inline-flex h-6 w-6 items-center justify-center rounded-md bg-accent text-sm font-black text-white">M</span>
           MLAuto <span className="text-sm font-semibold text-white/60">Beheer</span>
         </Link>
 

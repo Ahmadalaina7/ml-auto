@@ -193,7 +193,7 @@ export function WerkplaatsWizard() {
               <button
                 type="submit"
                 disabled={!canNext}
-                className="ml-auto rounded-md bg-accent px-6 py-2.5 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                className="ml-auto rounded-md bg-accent px-6 py-2.5 font-black text-white transition duration-fast hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {step < 2 ? "Volgende stap" : "Aanvraag via WhatsApp"}
               </button>

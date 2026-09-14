@@ -61,7 +61,7 @@ export default async function OccasionsPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:justify-end">
             <a
               href={`tel:${SITE.phone}`}
-              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
+              className="rounded-md bg-accent px-6 py-3 text-center font-black text-white transition duration-fast hover:bg-accent-dark"
             >
               {SITE.phoneDisplay}
             </a>

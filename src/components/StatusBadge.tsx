@@ -1,7 +1,7 @@
 // Status-badge met design tokens. Kan op elke inbox-rij gebruikt worden.
 export function StatusBadge({ status }: { status: string }) {
   const palette: Record<string, string> = {
-    New: "bg-accent text-brand",
+    New: "bg-accent text-white",
     Handled: "bg-strong/25 text-brand",
     Confirmed: "bg-strong text-white",
     Done: "bg-strong/25 text-brand",

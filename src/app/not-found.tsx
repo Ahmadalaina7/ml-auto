@@ -16,7 +16,7 @@ export default function NotFound() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/"
-              className="rounded-md bg-accent px-6 py-3 font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
+              className="rounded-md bg-accent px-6 py-3 font-black text-white transition duration-fast hover:bg-accent-dark"
             >
               Naar de startpagina
             </Link>

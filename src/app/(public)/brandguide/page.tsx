@@ -75,24 +75,23 @@ export default function BrandguidePage() {
         <Reveal className="mt-6 space-y-6">
           <div className="grid gap-5 md:grid-cols-2">
             <div className="on-dark flex min-h-40 flex-col items-center justify-center gap-3 rounded-xl bg-brand-dark p-8 shadow-1">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent font-display text-lg font-black text-brand">M</span>
-                <span className="font-display text-2xl font-black tracking-tight text-white">MLAUTO&apos;S</span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo-ml-autos.png" alt="ML AUTO'S logo" className="h-12 w-auto object-contain" />
               <p className="text-xs text-white/60">Thuis in Zeeland</p>
             </div>
-            <div className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-xl border border-surface bg-white p-8 shadow-1">
+            <div className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-xl border border-surface bg-sand p-8 shadow-1">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-brand font-display text-lg font-black text-white">M</span>
-                <span className="font-display text-2xl font-black tracking-tight text-brand">MLAUTO&apos;S</span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent font-display text-lg font-black text-white">M</span>
+                <span className="font-display text-2xl font-black tracking-tight text-brand">
+                  ML<span className="text-ink">AUTO&apos;S</span>
+                </span>
               </div>
               <p className="text-xs text-muted">Thuis in Zeeland</p>
             </div>
           </div>
           <p className="max-w-2xl text-sm leading-relaxed text-muted">
-            Op donkere ondergronden volstaat het wit-blauwe logo; op lichte ondergronden de
-            blauwe variant. De oranje “M”-blok is het herkenbare accent en mag nooit van kleur
-            veranderen.
+            Logo-kleuren: diep zwart, signaalrood (#DC2626) en wit. Op donkere vlakken gebruiken we
+            het volledige logo; op lichte vlakken de rode “M” als herkenbaar accent.
           </p>
         </Reveal>
       </section>
@@ -192,7 +191,7 @@ export default function BrandguidePage() {
         <Reveal className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
             <div className="flex flex-wrap gap-4">
-              <button type="button" className="rounded-md bg-accent px-7 py-3 font-black text-brand transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:text-white hover:shadow-2">
+              <button type="button" className="rounded-md bg-accent px-7 py-3 font-black text-white transition duration-fast hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-2">
                 Primaire actie
               </button>
               <button type="button" className="rounded-md bg-brand px-7 py-3 font-black text-white transition duration-fast hover:bg-brand-2">
@@ -210,7 +209,7 @@ export default function BrandguidePage() {
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <span className="rounded-full bg-strong px-2.5 py-0.5 text-xs font-black text-brand">Net binnen</span>
-              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-black text-brand">Uitgelicht</span>
+              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-black text-white">Uitgelicht</span>
               <span className="rounded-full bg-brand px-2.5 py-0.5 text-xs font-black text-white">Nieuw</span>
               <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-black text-red-700">Verkocht</span>
             </div>

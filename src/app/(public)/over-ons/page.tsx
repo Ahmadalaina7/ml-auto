@@ -86,7 +86,7 @@ export default function OverOnsPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:justify-end">
             <Link
               href="/contact"
-              className="rounded-md bg-accent px-6 py-3 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
+              className="rounded-md bg-accent px-6 py-3 text-center font-black text-white transition duration-fast hover:bg-accent-dark"
             >
               Neem contact op
             </Link>

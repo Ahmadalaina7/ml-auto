@@ -44,7 +44,7 @@ export function OccasionCard({ occasion }: { occasion: CardOccasion }) {
               </span>
             )}
             {occasion.featured && (
-              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-black text-brand">
+              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-black text-white">
                 Uitgelicht
               </span>
             )}

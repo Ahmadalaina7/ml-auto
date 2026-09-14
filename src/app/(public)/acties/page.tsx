@@ -43,7 +43,7 @@ export default async function ActiesPage() {
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex flex-wrap items-center gap-3">
                   {actie.badge && (
-                    <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-black text-brand">
+                    <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-black text-white">
                       {actie.badge}
                     </span>
                   )}
@@ -55,7 +55,7 @@ export default async function ActiesPage() {
                 <div className="mt-6 flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
                   <a
                     href={`tel:${SITE.phone}`}
-                    className="rounded-md bg-accent px-5 py-2.5 text-center font-black text-brand transition duration-fast hover:bg-accent-dark hover:text-white"
+                    className="rounded-md bg-accent px-5 py-2.5 text-center font-black text-white transition duration-fast hover:bg-accent-dark"
                   >
                     {SITE.phoneDisplay}
                   </a>
